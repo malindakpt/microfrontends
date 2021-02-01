@@ -1,0 +1,56 @@
+{
+  "name": "media-service",
+  "version": "0.0.6",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=6 <14",
+    "npm": ">=6"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn clean && tsc",
+    "start": "yarn run start:prod",
+    "start:dev": "tsc-watch --onSuccess \"node -r dotenv/config dist/index.js\"",
+    "start:prod": "node -r dotenv/config dist/index",
+    "start:debug": "tsc-watch --onSuccess \"node -r dotenv/config --inspect-brk dist/index.js\"",
+    "db:commit": "ts-node -r dotenv/config scripts/commit.command.ts",
+    "db:uncommit": "ts-node -r dotenv/config scripts/uncommit.command.ts",
+    "db:reset": "ts-node -r dotenv/config scripts/reset.command.ts",
+    "test": "jest --silent",
+    "test:watch": "jest --watch --silent",
+    "test:cov": "jest --coverage --silent",
+    "posttest:cov": "ts-node ../../../scripts/open-coverage.command.ts -- services/media/service",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register ../../../node_modules/jest/bin/jest --runInBand --silent",
+    "codegen": "graphql-codegen --config codegen.yml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ax/id-guard": "^0.0.19",
+    "@ax/service-common": "^0.0.1",
+    "@graphile-contrib/pg-simplify-inflector": "^6.0.0",
+    "@graphile/pg-pubsub": "^4.7.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "graphile-migrate": "^0.3.1",
+    "graphile-utils": "^4.5.6",
+    "graphql-subscriptions": "^1.1.0",
+    "inflection": "^1.12.0",
+    "ono": "^7.1.2",
+    "postgraphile": "^4.6.0",
+    "postgraphile-plugin-atomic-mutations": "^1.0.4",
+    "postgraphile-plugin-connection-filter": "^1.1.3",
+    "yup": "^0.28.3"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.13.5",
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.9.0",
+    "tsc-watch": "^4.2.3"
+  }
+}

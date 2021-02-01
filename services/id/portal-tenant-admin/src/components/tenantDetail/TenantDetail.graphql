@@ -1,0 +1,52 @@
+query TenantAdmins($dto: TenantAdminCondition!) {
+  tenantAdmins(condition: $dto) {
+    nodes {
+      id
+      name
+      email
+      active
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation CreateTenantAdmin($dto: CreateTenantAdminInput!) {
+  createTenantAdmin(input: $dto) {
+    tenantAdmin {
+      id
+      name
+      email
+      active
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation UpdateTenantAdmin($dto: UpdateTenantAdminInput!) {
+  updateTenantAdmin(input: $dto) {
+    tenantAdmin {
+      id
+      name
+      email
+      active
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation DeleteTenantAdmin($dto: DeleteTenantAdminInput!) {
+  deleteTenantAdmin(input: $dto) {
+    tenantAdmin {
+      id
+    }
+  }
+}
+
+mutation generateTenantAdminPassword($dto: GenerateTenantAdminPasswordInput!) {
+  generateTenantAdminPassword(input: $dto) {
+    password
+  }
+}

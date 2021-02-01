@@ -1,0 +1,32 @@
+@import '../../../variables.scss';
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column: span 3;
+  grid-row: span 1;
+  place-items: center;
+
+  color: #444;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  &.disabled {
+    background-color: var(
+      --landingpage-smalltile-disabled-background-color,
+      $landingpage-smalltile-disabled-background-color
+    );
+  }
+
+  .icon {
+    align-self: end;
+    width: 20%;
+  }
+
+  .label {
+    text-align: center;
+    align-self: start;
+    padding-top: 5px;
+  }
+}

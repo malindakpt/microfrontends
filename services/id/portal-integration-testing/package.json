@@ -1,0 +1,46 @@
+{
+  "name": "id-portal-integration-testing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf build",
+    "build": "react-scripts build",
+    "start": "react-scripts start",
+    "start:dev": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "codegen": "graphql-codegen -r dotenv/config --config codegen.yml"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.2.1",
+    "@apollo/react-hooks": "^3.1.5",
+    "@ax/id-link": "^1.0.0",
+    "antd": "^4.1.4",
+    "apollo-boost": "^0.4.7",
+    "apollo-client": "^2.6.8",
+    "graphql": "^14.6.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.13.5",
+    "react-scripts": "3.4.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}

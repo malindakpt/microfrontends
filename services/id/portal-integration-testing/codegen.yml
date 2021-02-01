@@ -1,0 +1,19 @@
+overwrite: true
+schema: ${REACT_APP_ACCESS_MANAGEMENT_ENDPOINT}
+documents: 'src/**/*.graphql'
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withHOC: false
+      withComponent: false
+      withHooks: true
+      namingConvention:
+        enumValues: keep
+config:
+  scalars:
+    Datetime: Date
+    JSON: '{ [key: string]: any }'

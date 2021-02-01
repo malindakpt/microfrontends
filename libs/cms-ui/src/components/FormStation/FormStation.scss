@@ -1,0 +1,31 @@
+@import '../../variables.scss';
+
+.container {
+  height: calc(100vh - #{$header-height});
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: min-content 1fr;
+  overflow: hidden;
+
+  background-color: var(--details-background-color, $details-background-color);
+
+  // Place PageHeader at the top
+  > div:first-child {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
+
+  // Extend all components, except PageHeader, to the bottom
+  // Enable scrolling children
+  .children {
+    grid-row: 2 / -1;
+    overflow-y: auto;
+  }
+
+  form {
+    display: grid;
+    grid-auto-rows: min-content;
+    padding: 30px;
+  }
+}

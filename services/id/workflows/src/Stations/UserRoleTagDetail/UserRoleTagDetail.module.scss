@@ -1,0 +1,13 @@
+.history {
+  cursor: pointer;
+  color: var(--input-label-color);
+
+  .historyIcon {
+    stroke: var(--actions-background-color);
+    width: 14px;
+    margin-right: 5px;
+    rect {
+      fill: white;
+    }
+  }
+}

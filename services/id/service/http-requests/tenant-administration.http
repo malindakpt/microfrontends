@@ -1,0 +1,260 @@
+@baseUrl = http://localhost:{{$dotenv TENANT_ADMIN_PORT}}/graphql
+
+# @name authenticateSuperUser
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+mutation authenticateSuperUser($input: AuthenticateSuperUserInput!) {
+  authenticateSuperUser(input: $input) {
+    accessToken
+    expiresIn
+    tokenType
+  }
+}
+
+{
+  "input": {
+    "email":"root@domain.com",
+    "password": "rootpwd"
+  }
+}
+
+###
+
+@authToken = {{authenticateSuperUser.response.body.data.authenticateSuperUser.accessToken}}
+
+# @name tenants
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+query tenants {
+  tenants {
+    nodes {
+      id
+      name
+      status
+      createdBy
+      createdAt
+      updatedBy
+      updatedAt
+    }
+  }
+}
+
+###
+
+# @name createTenant
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+mutation createTenant($input: CreateTenantInput!) {
+  createTenant(input: $input) {
+    tenant {
+      id
+      status
+      createdBy
+      createdAt
+    }
+  }
+}
+
+{
+  "input": {
+    "tenant": {
+      "name": "Tenant - 01"
+    }
+  }
+}
+
+@tenantId = {{createTenant.response.body.data.createTenant.tenant.id}}
+
+###
+
+# @name tenantAdmins
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+query tenantAdmins {
+  tenantAdmins {
+    nodes {
+      id
+      name
+      email
+      active
+      createdBy
+      createdAt
+      updatedBy
+      updatedAt
+    }
+  }
+}
+
+###
+
+# @name createTenantAdmin
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+mutation createTenantAdmin($input: CreateTenantAdminInput!) {
+  createTenantAdmin(input: $input) {
+    tenantAdmin {
+      id
+      active
+      createdBy
+      createdAt
+    }
+  }
+}
+
+{
+  "input": {
+    "tenantAdmin": {
+      "name": "Tenant Admin - 01",
+      "email": "admin@tenant-01.com",
+      "tenantId": "{{tenantId}}"
+    }
+  }
+}
+
+@tenantAdminId = {{createTenantAdmin.response.body.data.createTenantAdmin.tenantAdmin.id}}
+
+###
+
+# @name generateTenantAdminPassword
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+mutation generateTenantAdminPassword($input: GenerateTenantAdminPasswordInput!) {
+  generateTenantAdminPassword(input: $input) {
+    password
+  }
+}
+
+{
+  "input": {
+    "id" : "{{tenantAdminId}}"
+  }
+}
+
+###
+
+# @name updateTenantAdmin
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+mutation updateTenantAdmin($input: UpdateTenantAdminInput!) {
+  updateTenantAdmin(input: $input) {
+    tenantAdmin {
+      id
+      name
+      email
+      active
+      updatedBy
+      updatedAt
+    }
+  }
+}
+
+{
+  "input": {
+    "id": "{{tenantAdminId}}",
+    "patch": {
+      "name": "Tenant Admin - 01",
+      "email": "admin@tenant-01.com",
+      "active": true
+    }
+  }
+}
+
+###
+
+# @name deleteTenantAdmin
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+mutation deleteTenantAdmin($input: DeleteTenantAdminInput!) {
+  deleteTenantAdmin(input: $input) {
+    tenantAdmin {
+      id
+      name
+      email
+      active
+    }
+  }
+}
+
+{
+  "input": {
+    "id": "{{tenantAdminId}}"
+  }
+}
+
+###
+
+# @name updateTenant
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+mutation updateTenant($input: UpdateTenantInput!) {
+  updateTenant(input: $input) {
+    tenant {
+      id
+      status
+      name
+      updatedBy
+      updatedAt
+    }
+  }
+}
+
+{
+  "input": {
+    "id": "{{tenantId}}",
+    "patch" : {
+      "name": "Tenant - 01",
+      "status": "ENABLED"
+    }
+  }
+}
+// status = ENABLED | DISABLED
+
+###
+
+# @name deleteTenant
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+mutation deleteTenant($input: DeleteTenantInput!) {
+  deleteTenant(input: $input) {
+    tenant {
+      id
+      status
+      name
+    }
+  }
+}
+
+{
+  "input": {
+    "id": "{{tenantId}}"
+  }
+}

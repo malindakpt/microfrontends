@@ -1,0 +1,25 @@
+import * as faker from 'faker';
+import { CustomTags } from './CustomTags/CustomTags';
+import { ReadOnlyField } from './ReadOnly/ReadOnlyField';
+import { Select } from './Select/Select';
+import { Tags } from './Tags/Tags';
+import { SingleLineText } from './SingleLineText/SingleLineText';
+import { useCreateForm } from './formStoryHelper';
+
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+
+<Meta title="Primary Components/Form Elements" />
+
+# Form Components
+This is a sample form, using the form components of this library.  
+For a more detailed description of the single elements, please refer to the other
+stories in this folder.
+
+<Preview>
+  <Story name='Main'>
+    {() => {
+      const { form } = useCreateForm();
+      return form;
+    }}    
+  </Story>
+</Preview>

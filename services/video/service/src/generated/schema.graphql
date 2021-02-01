@@ -1,0 +1,4098 @@
+enum Archiving {
+  NONE
+  TAR
+  SINGLE_TAR
+}
+
+"""
+A filter to be used against Archiving fields. All fields are combined with a logical ‘and.’
+"""
+input ArchivingFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Archiving
+
+  """Not equal to the specified value."""
+  notEqualTo: Archiving
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Archiving
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Archiving
+
+  """Included in the specified list."""
+  in: [Archiving!]
+
+  """Not included in the specified list."""
+  notIn: [Archiving!]
+
+  """Less than the specified value."""
+  lessThan: Archiving
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Archiving
+
+  """Greater than the specified value."""
+  greaterThan: Archiving
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Archiving
+}
+
+"""
+A signed eight-byte integer. The upper big integer values are greater than the
+max value for a JavaScript number. Therefore all big integers will be output as
+strings and not numbers.
+"""
+scalar BigInt
+
+"""
+A filter to be used against BigInt fields. All fields are combined with a logical ‘and.’
+"""
+input BigIntFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: BigInt
+
+  """Not equal to the specified value."""
+  notEqualTo: BigInt
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: BigInt
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: BigInt
+
+  """Included in the specified list."""
+  in: [BigInt!]
+
+  """Not included in the specified list."""
+  notIn: [BigInt!]
+
+  """Less than the specified value."""
+  lessThan: BigInt
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: BigInt
+
+  """Greater than the specified value."""
+  greaterThan: BigInt
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: BigInt
+}
+
+"""
+A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’
+"""
+input BooleanFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Boolean
+
+  """Not equal to the specified value."""
+  notEqualTo: Boolean
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Boolean
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Boolean
+
+  """Included in the specified list."""
+  in: [Boolean!]
+
+  """Not included in the specified list."""
+  notIn: [Boolean!]
+
+  """Less than the specified value."""
+  lessThan: Boolean
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Boolean
+
+  """Greater than the specified value."""
+  greaterThan: Boolean
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Boolean
+}
+
+"""
+All input for the create `TranscodingProcessingProfile` mutation.
+@permissions: ADMIN
+"""
+input CreateTranscodingProcessingProfileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `TranscodingProcessingProfile` to be created by this mutation."""
+  transcodingProcessingProfile: TranscodingProcessingProfileInput!
+}
+
+"""The output of our create `TranscodingProcessingProfile` mutation."""
+type CreateTranscodingProcessingProfilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TranscodingProcessingProfile` that was created by this mutation."""
+  transcodingProcessingProfile: TranscodingProcessingProfile
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `TranscodingProcessingProfile`. May be used by Relay 1.
+  """
+  transcodingProcessingProfileEdge(
+    """The method to use when ordering `TranscodingProcessingProfile`."""
+    orderBy: [TranscodingProcessingProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TranscodingProcessingProfilesEdge
+}
+
+"""
+All input for the create `TranscodingVideoRepresentation` mutation.
+@permissions: ADMIN
+"""
+input CreateTranscodingVideoRepresentationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `TranscodingVideoRepresentation` to be created by this mutation."""
+  transcodingVideoRepresentation: TranscodingVideoRepresentationInput!
+}
+
+"""The output of our create `TranscodingVideoRepresentation` mutation."""
+type CreateTranscodingVideoRepresentationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `TranscodingVideoRepresentation` that was created by this mutation.
+  """
+  transcodingVideoRepresentation: TranscodingVideoRepresentation
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `TranscodingProcessingProfile` that is related to this `TranscodingVideoRepresentation`.
+  """
+  transcodingProcessingProfile: TranscodingProcessingProfile
+
+  """
+  An edge for our `TranscodingVideoRepresentation`. May be used by Relay 1.
+  """
+  transcodingVideoRepresentationEdge(
+    """The method to use when ordering `TranscodingVideoRepresentation`."""
+    orderBy: [TranscodingVideoRepresentationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TranscodingVideoRepresentationsEdge
+}
+
+"""
+All input for the create `VideosTag` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input CreateVideosTagInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `VideosTag` to be created by this mutation."""
+  videosTag: VideosTagInput!
+}
+
+"""The output of our create `VideosTag` mutation."""
+type CreateVideosTagPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `VideosTag` that was created by this mutation."""
+  videosTag: VideosTag
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Video` that is related to this `VideosTag`."""
+  video: Video
+
+  """An edge for our `VideosTag`. May be used by Relay 1."""
+  videosTagEdge(
+    """The method to use when ordering `VideosTag`."""
+    orderBy: [VideosTagsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideosTagsEdge
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+"""
+A point in time as described by the [ISO
+8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+"""
+scalar Datetime
+
+"""
+A filter to be used against Datetime fields. All fields are combined with a logical ‘and.’
+"""
+input DatetimeFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Datetime
+
+  """Not equal to the specified value."""
+  notEqualTo: Datetime
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Datetime
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Datetime
+
+  """Included in the specified list."""
+  in: [Datetime!]
+
+  """Not included in the specified list."""
+  notIn: [Datetime!]
+
+  """Less than the specified value."""
+  lessThan: Datetime
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Datetime
+
+  """Greater than the specified value."""
+  greaterThan: Datetime
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Datetime
+}
+
+"""
+All input for the `deleteTranscodingProcessingProfileByNodeId` mutation.
+@permissions: ADMIN
+"""
+input DeleteTranscodingProcessingProfileByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `TranscodingProcessingProfile` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteTranscodingProcessingProfile` mutation.
+@permissions: ADMIN
+"""
+input DeleteTranscodingProcessingProfileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `TranscodingProcessingProfile` mutation."""
+type DeleteTranscodingProcessingProfilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TranscodingProcessingProfile` that was deleted by this mutation."""
+  transcodingProcessingProfile: TranscodingProcessingProfile
+  deletedTranscodingProcessingProfileNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `TranscodingProcessingProfile`. May be used by Relay 1.
+  """
+  transcodingProcessingProfileEdge(
+    """The method to use when ordering `TranscodingProcessingProfile`."""
+    orderBy: [TranscodingProcessingProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TranscodingProcessingProfilesEdge
+}
+
+"""
+All input for the `deleteTranscodingVideoRepresentationByNodeId` mutation.
+@permissions: ADMIN
+"""
+input DeleteTranscodingVideoRepresentationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `TranscodingVideoRepresentation` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteTranscodingVideoRepresentation` mutation.
+@permissions: ADMIN
+"""
+input DeleteTranscodingVideoRepresentationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `TranscodingVideoRepresentation` mutation."""
+type DeleteTranscodingVideoRepresentationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `TranscodingVideoRepresentation` that was deleted by this mutation.
+  """
+  transcodingVideoRepresentation: TranscodingVideoRepresentation
+  deletedTranscodingVideoRepresentationNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `TranscodingProcessingProfile` that is related to this `TranscodingVideoRepresentation`.
+  """
+  transcodingProcessingProfile: TranscodingProcessingProfile
+
+  """
+  An edge for our `TranscodingVideoRepresentation`. May be used by Relay 1.
+  """
+  transcodingVideoRepresentationEdge(
+    """The method to use when ordering `TranscodingVideoRepresentation`."""
+    orderBy: [TranscodingVideoRepresentationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TranscodingVideoRepresentationsEdge
+}
+
+"""
+All input for the `deleteVideoByExternalId` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input DeleteVideoByExternalIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  externalId: String!
+}
+
+"""
+All input for the `deleteVideoByNodeId` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input DeleteVideoByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Video` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteVideoBySourceLocation` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input DeleteVideoBySourceLocationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  sourceLocation: String!
+}
+
+"""
+All input for the `deleteVideo` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input DeleteVideoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: Int!
+}
+
+"""The output of our delete `Video` mutation."""
+type DeleteVideoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Video` that was deleted by this mutation."""
+  video: Video
+  deletedVideoNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Video`. May be used by Relay 1."""
+  videoEdge(
+    """The method to use when ordering `Video`."""
+    orderBy: [VideosOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideosEdge
+}
+
+"""
+All input for the `deleteVideosTagByNodeId` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input DeleteVideosTagByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `VideosTag` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteVideosTag` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input DeleteVideosTagInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  videoId: Int!
+
+  """@notEmpty()"""
+  name: String!
+}
+
+"""The output of our delete `VideosTag` mutation."""
+type DeleteVideosTagPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `VideosTag` that was deleted by this mutation."""
+  videosTag: VideosTag
+  deletedVideosTagNodeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Video` that is related to this `VideosTag`."""
+  video: Video
+
+  """An edge for our `VideosTag`. May be used by Relay 1."""
+  videosTagEdge(
+    """The method to use when ordering `VideosTag`."""
+    orderBy: [VideosTagsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideosTagsEdge
+}
+
+enum DrmProtection {
+  NONE
+  MANAGED
+}
+
+"""
+A filter to be used against DrmProtection fields. All fields are combined with a logical ‘and.’
+"""
+input DrmProtectionFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: DrmProtection
+
+  """Not equal to the specified value."""
+  notEqualTo: DrmProtection
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: DrmProtection
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: DrmProtection
+
+  """Included in the specified list."""
+  in: [DrmProtection!]
+
+  """Not included in the specified list."""
+  notIn: [DrmProtection!]
+
+  """Less than the specified value."""
+  lessThan: DrmProtection
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: DrmProtection
+
+  """Greater than the specified value."""
+  greaterThan: DrmProtection
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: DrmProtection
+}
+
+"""A `Archiving` edge in the connection."""
+type GetArchivingValueEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Archiving` at the end of the edge."""
+  node: Archiving
+}
+
+"""A connection to a list of `Archiving` values."""
+type GetArchivingValuesConnection {
+  """A list of `Archiving` objects."""
+  nodes: [Archiving]!
+
+  """
+  A list of edges which contains the `Archiving` and cursor to aid in pagination.
+  """
+  edges: [GetArchivingValueEdge!]!
+
+  """The count of *all* `Archiving` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `DrmProtection` edge in the connection."""
+type GetDrmProtectionValueEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `DrmProtection` at the end of the edge."""
+  node: DrmProtection
+}
+
+"""A connection to a list of `DrmProtection` values."""
+type GetDrmProtectionValuesConnection {
+  """A list of `DrmProtection` objects."""
+  nodes: [DrmProtection]!
+
+  """
+  A list of edges which contains the `DrmProtection` and cursor to aid in pagination.
+  """
+  edges: [GetDrmProtectionValueEdge!]!
+
+  """The count of *all* `DrmProtection` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `OutputFormat` edge in the connection."""
+type GetOutputFormatValueEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `OutputFormat` at the end of the edge."""
+  node: OutputFormat
+}
+
+"""A connection to a list of `OutputFormat` values."""
+type GetOutputFormatValuesConnection {
+  """A list of `OutputFormat` objects."""
+  nodes: [OutputFormat]!
+
+  """
+  A list of edges which contains the `OutputFormat` and cursor to aid in pagination.
+  """
+  edges: [GetOutputFormatValueEdge!]!
+
+  """The count of *all* `OutputFormat` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `QaStatus` edge in the connection."""
+type GetQaStatusValueEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `QaStatus` at the end of the edge."""
+  node: QaStatus
+}
+
+"""A connection to a list of `QaStatus` values."""
+type GetQaStatusValuesConnection {
+  """A list of `QaStatus` objects."""
+  nodes: [QaStatus]!
+
+  """
+  A list of edges which contains the `QaStatus` and cursor to aid in pagination.
+  """
+  edges: [GetQaStatusValueEdge!]!
+
+  """The count of *all* `QaStatus` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `TranscodingStatus` edge in the connection."""
+type GetTranscodingStatusValueEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `TranscodingStatus` at the end of the edge."""
+  node: TranscodingStatus
+}
+
+"""A connection to a list of `TranscodingStatus` values."""
+type GetTranscodingStatusValuesConnection {
+  """A list of `TranscodingStatus` objects."""
+  nodes: [TranscodingStatus]!
+
+  """
+  A list of edges which contains the `TranscodingStatus` and cursor to aid in pagination.
+  """
+  edges: [GetTranscodingStatusValueEdge!]!
+
+  """
+  The count of *all* `TranscodingStatus` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+A filter to be used against Int fields. All fields are combined with a logical ‘and.’
+"""
+input IntFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Int
+
+  """Not equal to the specified value."""
+  notEqualTo: Int
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Int
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Int
+
+  """Included in the specified list."""
+  in: [Int!]
+
+  """Not included in the specified list."""
+  notIn: [Int!]
+
+  """Less than the specified value."""
+  lessThan: Int
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Int
+
+  """Greater than the specified value."""
+  greaterThan: Int
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Int
+}
+
+"""
+A filter to be used against Int List fields. All fields are combined with a logical ‘and.’
+"""
+input IntListFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: [Int]
+
+  """Not equal to the specified value."""
+  notEqualTo: [Int]
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: [Int]
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: [Int]
+
+  """Less than the specified value."""
+  lessThan: [Int]
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: [Int]
+
+  """Greater than the specified value."""
+  greaterThan: [Int]
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: [Int]
+
+  """Contains the specified list of values."""
+  contains: [Int]
+
+  """Contained by the specified list of values."""
+  containedBy: [Int]
+
+  """Overlaps the specified list of values."""
+  overlaps: [Int]
+
+  """Any array item is equal to the specified value."""
+  anyEqualTo: Int
+
+  """Any array item is not equal to the specified value."""
+  anyNotEqualTo: Int
+
+  """Any array item is less than the specified value."""
+  anyLessThan: Int
+
+  """Any array item is less than or equal to the specified value."""
+  anyLessThanOrEqualTo: Int
+
+  """Any array item is greater than the specified value."""
+  anyGreaterThan: Int
+
+  """Any array item is greater than or equal to the specified value."""
+  anyGreaterThanOrEqualTo: Int
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+A filter to be used against JSON fields. All fields are combined with a logical ‘and.’
+"""
+input JSONFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: JSON
+
+  """Not equal to the specified value."""
+  notEqualTo: JSON
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: JSON
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: JSON
+
+  """Included in the specified list."""
+  in: [JSON!]
+
+  """Not included in the specified list."""
+  notIn: [JSON!]
+
+  """Less than the specified value."""
+  lessThan: JSON
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: JSON
+
+  """Greater than the specified value."""
+  greaterThan: JSON
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: JSON
+
+  """Contains the specified JSON."""
+  contains: JSON
+
+  """Contains the specified key."""
+  containsKey: String
+
+  """Contains all of the specified keys."""
+  containsAllKeys: [String!]
+
+  """Contains any of the specified keys."""
+  containsAnyKeys: [String!]
+
+  """Contained by the specified JSON."""
+  containedBy: JSON
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  """Creates a single `TranscodingProcessingProfile`."""
+  createTranscodingProcessingProfile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateTranscodingProcessingProfileInput!
+  ): CreateTranscodingProcessingProfilePayload
+
+  """Creates a single `TranscodingVideoRepresentation`."""
+  createTranscodingVideoRepresentation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateTranscodingVideoRepresentationInput!
+  ): CreateTranscodingVideoRepresentationPayload
+
+  """Creates a single `VideosTag`."""
+  createVideosTag(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateVideosTagInput!
+  ): CreateVideosTagPayload
+
+  """
+  Updates a single `TranscodingAcquisitionProfile` using its globally unique id and a patch.
+  """
+  updateTranscodingAcquisitionProfileByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTranscodingAcquisitionProfileByNodeIdInput!
+  ): UpdateTranscodingAcquisitionProfilePayload
+
+  """
+  Updates a single `TranscodingAcquisitionProfile` using a unique key and a patch.
+  """
+  updateTranscodingAcquisitionProfile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTranscodingAcquisitionProfileInput!
+  ): UpdateTranscodingAcquisitionProfilePayload
+
+  """
+  Updates a single `TranscodingProcessingProfile` using its globally unique id and a patch.
+  """
+  updateTranscodingProcessingProfileByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTranscodingProcessingProfileByNodeIdInput!
+  ): UpdateTranscodingProcessingProfilePayload
+
+  """
+  Updates a single `TranscodingProcessingProfile` using a unique key and a patch.
+  """
+  updateTranscodingProcessingProfile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTranscodingProcessingProfileInput!
+  ): UpdateTranscodingProcessingProfilePayload
+
+  """
+  Updates a single `TranscodingPublishingProfile` using its globally unique id and a patch.
+  """
+  updateTranscodingPublishingProfileByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTranscodingPublishingProfileByNodeIdInput!
+  ): UpdateTranscodingPublishingProfilePayload
+
+  """
+  Updates a single `TranscodingPublishingProfile` using a unique key and a patch.
+  """
+  updateTranscodingPublishingProfile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTranscodingPublishingProfileInput!
+  ): UpdateTranscodingPublishingProfilePayload
+
+  """
+  Updates a single `TranscodingVideoRepresentation` using its globally unique id and a patch.
+  """
+  updateTranscodingVideoRepresentationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTranscodingVideoRepresentationByNodeIdInput!
+  ): UpdateTranscodingVideoRepresentationPayload
+
+  """
+  Updates a single `TranscodingVideoRepresentation` using a unique key and a patch.
+  """
+  updateTranscodingVideoRepresentation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTranscodingVideoRepresentationInput!
+  ): UpdateTranscodingVideoRepresentationPayload
+
+  """Updates a single `Video` using its globally unique id and a patch."""
+  updateVideoByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVideoByNodeIdInput!
+  ): UpdateVideoPayload
+
+  """Updates a single `Video` using a unique key and a patch."""
+  updateVideo(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVideoInput!
+  ): UpdateVideoPayload
+
+  """Updates a single `Video` using a unique key and a patch."""
+  updateVideoByExternalId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVideoByExternalIdInput!
+  ): UpdateVideoPayload
+
+  """Updates a single `Video` using a unique key and a patch."""
+  updateVideoBySourceLocation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVideoBySourceLocationInput!
+  ): UpdateVideoPayload
+
+  """Updates a single `VideosTag` using its globally unique id and a patch."""
+  updateVideosTagByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVideosTagByNodeIdInput!
+  ): UpdateVideosTagPayload
+
+  """Updates a single `VideosTag` using a unique key and a patch."""
+  updateVideosTag(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateVideosTagInput!
+  ): UpdateVideosTagPayload
+
+  """
+  Deletes a single `TranscodingProcessingProfile` using its globally unique id.
+  """
+  deleteTranscodingProcessingProfileByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteTranscodingProcessingProfileByNodeIdInput!
+  ): DeleteTranscodingProcessingProfilePayload
+
+  """Deletes a single `TranscodingProcessingProfile` using a unique key."""
+  deleteTranscodingProcessingProfile(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteTranscodingProcessingProfileInput!
+  ): DeleteTranscodingProcessingProfilePayload
+
+  """
+  Deletes a single `TranscodingVideoRepresentation` using its globally unique id.
+  """
+  deleteTranscodingVideoRepresentationByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteTranscodingVideoRepresentationByNodeIdInput!
+  ): DeleteTranscodingVideoRepresentationPayload
+
+  """Deletes a single `TranscodingVideoRepresentation` using a unique key."""
+  deleteTranscodingVideoRepresentation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteTranscodingVideoRepresentationInput!
+  ): DeleteTranscodingVideoRepresentationPayload
+
+  """Deletes a single `Video` using its globally unique id."""
+  deleteVideoByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVideoByNodeIdInput!
+  ): DeleteVideoPayload
+
+  """Deletes a single `Video` using a unique key."""
+  deleteVideo(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVideoInput!
+  ): DeleteVideoPayload
+
+  """Deletes a single `Video` using a unique key."""
+  deleteVideoByExternalId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVideoByExternalIdInput!
+  ): DeleteVideoPayload
+
+  """Deletes a single `Video` using a unique key."""
+  deleteVideoBySourceLocation(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVideoBySourceLocationInput!
+  ): DeleteVideoPayload
+
+  """Deletes a single `VideosTag` using its globally unique id."""
+  deleteVideosTagByNodeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVideosTagByNodeIdInput!
+  ): DeleteVideosTagPayload
+
+  """Deletes a single `VideosTag` using a unique key."""
+  deleteVideosTag(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteVideosTagInput!
+  ): DeleteVideosTagPayload
+  startVipJob(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: StartVipJobInput!
+  ): StartVipJobPayload
+  populateVideos(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: PopulateInput!
+  ): PopulatePayload
+}
+
+"""An object with a globally unique `ID`."""
+interface Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+}
+
+enum OutputFormat {
+  HLS
+  DASH
+  HLS_DASH
+  CMAF
+}
+
+"""
+A filter to be used against OutputFormat fields. All fields are combined with a logical ‘and.’
+"""
+input OutputFormatFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: OutputFormat
+
+  """Not equal to the specified value."""
+  notEqualTo: OutputFormat
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: OutputFormat
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: OutputFormat
+
+  """Included in the specified list."""
+  in: [OutputFormat!]
+
+  """Not included in the specified list."""
+  notIn: [OutputFormat!]
+
+  """Less than the specified value."""
+  lessThan: OutputFormat
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: OutputFormat
+
+  """Greater than the specified value."""
+  greaterThan: OutputFormat
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: OutputFormat
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+}
+
+input PopulateInput {
+  clientMutationId: String
+  count: Int!
+}
+
+type PopulatePayload {
+  count: Int!
+  query: Query
+}
+
+enum QaStatus {
+  NOT_PREVIEWED
+  NOT_APPROVED
+  APPROVED
+}
+
+"""
+A filter to be used against QaStatus fields. All fields are combined with a logical ‘and.’
+"""
+input QaStatusFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: QaStatus
+
+  """Not equal to the specified value."""
+  notEqualTo: QaStatus
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: QaStatus
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: QaStatus
+
+  """Included in the specified list."""
+  in: [QaStatus!]
+
+  """Not included in the specified list."""
+  notIn: [QaStatus!]
+
+  """Less than the specified value."""
+  lessThan: QaStatus
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: QaStatus
+
+  """Greater than the specified value."""
+  greaterThan: QaStatus
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: QaStatus
+}
+
+"""The root query type which gives access points into the data universe."""
+type Query implements Node {
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+
+  """
+  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  """
+  nodeId: ID!
+
+  """Fetches an object given its globally unique `ID`."""
+  node(
+    """The globally unique `ID`."""
+    nodeId: ID!
+  ): Node
+
+  """
+  Reads and enables pagination through a set of `TranscodingAcquisitionProfile`.
+  """
+  transcodingAcquisitionProfiles(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TranscodingAcquisitionProfile`."""
+    orderBy: [TranscodingAcquisitionProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TranscodingAcquisitionProfileCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TranscodingAcquisitionProfileFilter
+  ): TranscodingAcquisitionProfilesConnection
+
+  """Reads and enables pagination through a set of `TranscodingHistory`."""
+  transcodingHistories(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TranscodingHistory`."""
+    orderBy: [TranscodingHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TranscodingHistoryCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TranscodingHistoryFilter
+  ): TranscodingHistoriesConnection
+
+  """
+  Reads and enables pagination through a set of `TranscodingProcessingProfile`.
+  """
+  transcodingProcessingProfiles(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TranscodingProcessingProfile`."""
+    orderBy: [TranscodingProcessingProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TranscodingProcessingProfileCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TranscodingProcessingProfileFilter
+  ): TranscodingProcessingProfilesConnection
+
+  """
+  Reads and enables pagination through a set of `TranscodingPublishingProfile`.
+  """
+  transcodingPublishingProfiles(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TranscodingPublishingProfile`."""
+    orderBy: [TranscodingPublishingProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TranscodingPublishingProfileCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TranscodingPublishingProfileFilter
+  ): TranscodingPublishingProfilesConnection
+
+  """
+  Reads and enables pagination through a set of `TranscodingVideoRepresentation`.
+  """
+  transcodingVideoRepresentations(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TranscodingVideoRepresentation`."""
+    orderBy: [TranscodingVideoRepresentationsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TranscodingVideoRepresentationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TranscodingVideoRepresentationFilter
+  ): TranscodingVideoRepresentationsConnection
+
+  """Reads and enables pagination through a set of `Video`."""
+  videos(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Video`."""
+    orderBy: [VideosOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: VideoCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: VideoFilter
+  ): VideosConnection
+
+  """Reads and enables pagination through a set of `VideosTag`."""
+  videosTags(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `VideosTag`."""
+    orderBy: [VideosTagsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: VideosTagCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: VideosTagFilter
+  ): VideosTagsConnection
+  transcodingAcquisitionProfile(id: Int!): TranscodingAcquisitionProfile
+  transcodingHistory(id: Int!): TranscodingHistory
+  transcodingProcessingProfile(id: Int!): TranscodingProcessingProfile
+  transcodingPublishingProfile(id: Int!): TranscodingPublishingProfile
+  transcodingVideoRepresentation(id: Int!): TranscodingVideoRepresentation
+  video(id: Int!): Video
+  videoByExternalId(externalId: String!): Video
+  videoBySourceLocation(sourceLocation: String!): Video
+  videosTag(videoId: Int!, name: String!): VideosTag
+  getArchivingValues(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: ArchivingFilter
+  ): GetArchivingValuesConnection!
+  getDrmProtectionValues(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DrmProtectionFilter
+  ): GetDrmProtectionValuesConnection!
+  getOutputFormatValues(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: OutputFormatFilter
+  ): GetOutputFormatValuesConnection!
+  getQaStatusValues(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: QaStatusFilter
+  ): GetQaStatusValuesConnection!
+  getTranscodingStatusValues(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TranscodingStatusFilter
+  ): GetTranscodingStatusValuesConnection!
+
+  """
+  Reads a single `TranscodingAcquisitionProfile` using its globally unique `ID`.
+  """
+  transcodingAcquisitionProfileByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `TranscodingAcquisitionProfile`.
+    """
+    nodeId: ID!
+  ): TranscodingAcquisitionProfile
+
+  """Reads a single `TranscodingHistory` using its globally unique `ID`."""
+  transcodingHistoryByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `TranscodingHistory`.
+    """
+    nodeId: ID!
+  ): TranscodingHistory
+
+  """
+  Reads a single `TranscodingProcessingProfile` using its globally unique `ID`.
+  """
+  transcodingProcessingProfileByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `TranscodingProcessingProfile`.
+    """
+    nodeId: ID!
+  ): TranscodingProcessingProfile
+
+  """
+  Reads a single `TranscodingPublishingProfile` using its globally unique `ID`.
+  """
+  transcodingPublishingProfileByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `TranscodingPublishingProfile`.
+    """
+    nodeId: ID!
+  ): TranscodingPublishingProfile
+
+  """
+  Reads a single `TranscodingVideoRepresentation` using its globally unique `ID`.
+  """
+  transcodingVideoRepresentationByNodeId(
+    """
+    The globally unique `ID` to be used in selecting a single `TranscodingVideoRepresentation`.
+    """
+    nodeId: ID!
+  ): TranscodingVideoRepresentation
+
+  """Reads a single `Video` using its globally unique `ID`."""
+  videoByNodeId(
+    """The globally unique `ID` to be used in selecting a single `Video`."""
+    nodeId: ID!
+  ): Video
+
+  """Reads a single `VideosTag` using its globally unique `ID`."""
+  videosTagByNodeId(
+    """The globally unique `ID` to be used in selecting a single `VideosTag`."""
+    nodeId: ID!
+  ): VideosTag
+  sourceVideos(input: SourceVideoInput): SourceVideoPayload
+}
+
+type SourceVideo {
+  path: String!
+}
+
+input SourceVideoFilter {
+  path: SourceVideoStringFilter
+}
+
+input SourceVideoInput {
+  after: String
+  first: Int
+  filter: SourceVideoFilter
+}
+
+type SourceVideoPageInfo {
+  hasNextPage: Boolean!
+  endCursor: Cursor
+}
+
+type SourceVideoPayload {
+  nodes: [SourceVideo]!
+  pageInfo: SourceVideoPageInfo
+  query: Query
+}
+
+input SourceVideoStringFilter {
+  startsWith: String
+}
+
+input StartVipJobInput {
+  clientMutationId: String
+  videoRelativePath: String!
+  processingProfileId: Int!
+}
+
+type StartVipJobPayload {
+  video: Video
+  query: Query
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: String
+
+  """Not equal to the specified value."""
+  notEqualTo: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: String
+
+  """Included in the specified list."""
+  in: [String!]
+
+  """Not included in the specified list."""
+  notIn: [String!]
+
+  """Less than the specified value."""
+  lessThan: String
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: String
+
+  """Greater than the specified value."""
+  greaterThan: String
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: String
+
+  """Contains the specified string (case-sensitive)."""
+  includes: String
+
+  """Does not contain the specified string (case-sensitive)."""
+  notIncludes: String
+
+  """Contains the specified string (case-insensitive)."""
+  includesInsensitive: String
+
+  """Does not contain the specified string (case-insensitive)."""
+  notIncludesInsensitive: String
+
+  """Starts with the specified string (case-sensitive)."""
+  startsWith: String
+
+  """Does not start with the specified string (case-sensitive)."""
+  notStartsWith: String
+
+  """Starts with the specified string (case-insensitive)."""
+  startsWithInsensitive: String
+
+  """Does not start with the specified string (case-insensitive)."""
+  notStartsWithInsensitive: String
+
+  """Ends with the specified string (case-sensitive)."""
+  endsWith: String
+
+  """Does not end with the specified string (case-sensitive)."""
+  notEndsWith: String
+
+  """Ends with the specified string (case-insensitive)."""
+  endsWithInsensitive: String
+
+  """Does not end with the specified string (case-insensitive)."""
+  notEndsWithInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any
+  single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_)
+  matches any single character; a percent sign (%) matches any sequence of zero
+  or more characters.
+  """
+  notLike: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches
+  any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_)
+  matches any single character; a percent sign (%) matches any sequence of zero
+  or more characters.
+  """
+  notLikeInsensitive: String
+
+  """
+  Matches the specified pattern using the SQL standard's definition of a regular expression.
+  """
+  similarTo: String
+
+  """
+  Does not match the specified pattern using the SQL standard's definition of a regular expression.
+  """
+  notSimilarTo: String
+}
+
+"""
+A filter to be used against String List fields. All fields are combined with a logical ‘and.’
+"""
+input StringListFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: [String]
+
+  """Not equal to the specified value."""
+  notEqualTo: [String]
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: [String]
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: [String]
+
+  """Less than the specified value."""
+  lessThan: [String]
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: [String]
+
+  """Greater than the specified value."""
+  greaterThan: [String]
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: [String]
+
+  """Contains the specified list of values."""
+  contains: [String]
+
+  """Contained by the specified list of values."""
+  containedBy: [String]
+
+  """Overlaps the specified list of values."""
+  overlaps: [String]
+
+  """Any array item is equal to the specified value."""
+  anyEqualTo: String
+
+  """Any array item is not equal to the specified value."""
+  anyNotEqualTo: String
+
+  """Any array item is less than the specified value."""
+  anyLessThan: String
+
+  """Any array item is less than or equal to the specified value."""
+  anyLessThanOrEqualTo: String
+
+  """Any array item is greater than the specified value."""
+  anyGreaterThan: String
+
+  """Any array item is greater than or equal to the specified value."""
+  anyGreaterThanOrEqualTo: String
+}
+
+"""
+The root subscription type: contains realtime events you can subscribe to with the `subscription` operation.
+"""
+type Subscription {
+  """Triggered when a Video is mutated (insert, update or delete). """
+  videoMutated: VideoSubscriptionPayload
+}
+
+"""@permissions: ADMIN"""
+type TranscodingAcquisitionProfile implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  title: String!
+  isValid: Boolean!
+  provider: String
+  uriPath: String
+  rootFolderPath: String
+  readCredentialsName: String
+  readCredentialsSecret: String
+  listCredentialsName: String
+  listCredentialsSecret: String
+  createdDate: Datetime!
+  updatedDate: Datetime!
+  createdUser: String!
+  updatedUser: String!
+}
+
+"""
+A condition to be used against `TranscodingAcquisitionProfile` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input TranscodingAcquisitionProfileCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """
+  Checks for equality with the object’s `title` field.
+  @maxLength(100)
+  @notEmpty()
+  """
+  title: String
+
+  """Checks for equality with the object’s `isValid` field."""
+  isValid: Boolean
+
+  """Checks for equality with the object’s `provider` field."""
+  provider: String
+
+  """Checks for equality with the object’s `uriPath` field."""
+  uriPath: String
+
+  """Checks for equality with the object’s `rootFolderPath` field."""
+  rootFolderPath: String
+
+  """Checks for equality with the object’s `readCredentialsName` field."""
+  readCredentialsName: String
+
+  """Checks for equality with the object’s `readCredentialsSecret` field."""
+  readCredentialsSecret: String
+
+  """Checks for equality with the object’s `listCredentialsName` field."""
+  listCredentialsName: String
+
+  """Checks for equality with the object’s `listCredentialsSecret` field."""
+  listCredentialsSecret: String
+
+  """Checks for equality with the object’s `createdDate` field."""
+  createdDate: Datetime
+
+  """Checks for equality with the object’s `updatedDate` field."""
+  updatedDate: Datetime
+
+  """Checks for equality with the object’s `createdUser` field."""
+  createdUser: String
+
+  """Checks for equality with the object’s `updatedUser` field."""
+  updatedUser: String
+}
+
+"""
+A filter to be used against `TranscodingAcquisitionProfile` object types. All fields are combined with a logical ‘and.’
+"""
+input TranscodingAcquisitionProfileFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `title` field."""
+  title: StringFilter
+
+  """Filter by the object’s `isValid` field."""
+  isValid: BooleanFilter
+
+  """Filter by the object’s `provider` field."""
+  provider: StringFilter
+
+  """Filter by the object’s `uriPath` field."""
+  uriPath: StringFilter
+
+  """Filter by the object’s `rootFolderPath` field."""
+  rootFolderPath: StringFilter
+
+  """Filter by the object’s `readCredentialsName` field."""
+  readCredentialsName: StringFilter
+
+  """Filter by the object’s `readCredentialsSecret` field."""
+  readCredentialsSecret: StringFilter
+
+  """Filter by the object’s `listCredentialsName` field."""
+  listCredentialsName: StringFilter
+
+  """Filter by the object’s `listCredentialsSecret` field."""
+  listCredentialsSecret: StringFilter
+
+  """Filter by the object’s `createdDate` field."""
+  createdDate: DatetimeFilter
+
+  """Filter by the object’s `updatedDate` field."""
+  updatedDate: DatetimeFilter
+
+  """Filter by the object’s `createdUser` field."""
+  createdUser: StringFilter
+
+  """Filter by the object’s `updatedUser` field."""
+  updatedUser: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [TranscodingAcquisitionProfileFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [TranscodingAcquisitionProfileFilter!]
+
+  """Negates the expression."""
+  not: TranscodingAcquisitionProfileFilter
+}
+
+"""
+Represents an update to a `TranscodingAcquisitionProfile`. Fields that are set will be updated.
+"""
+input TranscodingAcquisitionProfilePatch {
+  """
+  @maxLength(100)
+  @notEmpty()
+  """
+  title: String
+  uriPath: String
+  rootFolderPath: String
+  readCredentialsName: String
+  readCredentialsSecret: String
+  listCredentialsName: String
+  listCredentialsSecret: String
+}
+
+"""
+A connection to a list of `TranscodingAcquisitionProfile` values.
+@permissions: ADMIN
+"""
+type TranscodingAcquisitionProfilesConnection {
+  """A list of `TranscodingAcquisitionProfile` objects."""
+  nodes: [TranscodingAcquisitionProfile]!
+
+  """
+  A list of edges which contains the `TranscodingAcquisitionProfile` and cursor to aid in pagination.
+  """
+  edges: [TranscodingAcquisitionProfilesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `TranscodingAcquisitionProfile` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `TranscodingAcquisitionProfile` edge in the connection."""
+type TranscodingAcquisitionProfilesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `TranscodingAcquisitionProfile` at the end of the edge."""
+  node: TranscodingAcquisitionProfile
+}
+
+"""Methods to use when ordering `TranscodingAcquisitionProfile`."""
+enum TranscodingAcquisitionProfilesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  IS_VALID_ASC
+  IS_VALID_DESC
+  PROVIDER_ASC
+  PROVIDER_DESC
+  URI_PATH_ASC
+  URI_PATH_DESC
+  ROOT_FOLDER_PATH_ASC
+  ROOT_FOLDER_PATH_DESC
+  READ_CREDENTIALS_NAME_ASC
+  READ_CREDENTIALS_NAME_DESC
+  READ_CREDENTIALS_SECRET_ASC
+  READ_CREDENTIALS_SECRET_DESC
+  LIST_CREDENTIALS_NAME_ASC
+  LIST_CREDENTIALS_NAME_DESC
+  LIST_CREDENTIALS_SECRET_ASC
+  LIST_CREDENTIALS_SECRET_DESC
+  CREATED_DATE_ASC
+  CREATED_DATE_DESC
+  UPDATED_DATE_ASC
+  UPDATED_DATE_DESC
+  CREATED_USER_ASC
+  CREATED_USER_DESC
+  UPDATED_USER_ASC
+  UPDATED_USER_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A connection to a list of `TranscodingHistory` values.
+@permissions: VIDEO_READER,VIDEO_EDITOR,ADMIN
+"""
+type TranscodingHistoriesConnection {
+  """A list of `TranscodingHistory` objects."""
+  nodes: [TranscodingHistory]!
+
+  """
+  A list of edges which contains the `TranscodingHistory` and cursor to aid in pagination.
+  """
+  edges: [TranscodingHistoriesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `TranscodingHistory` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `TranscodingHistory` edge in the connection."""
+type TranscodingHistoriesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `TranscodingHistory` at the end of the edge."""
+  node: TranscodingHistory
+}
+
+"""Methods to use when ordering `TranscodingHistory`."""
+enum TranscodingHistoriesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  VIDEO_ID_ASC
+  VIDEO_ID_DESC
+  MESSAGE_TYPE_ASC
+  MESSAGE_TYPE_DESC
+  MESSAGE_BODY_ASC
+  MESSAGE_BODY_DESC
+  ENQUEUED_DATE_ASC
+  ENQUEUED_DATE_DESC
+  CREATED_DATE_ASC
+  CREATED_DATE_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""@permissions: VIDEO_READER,VIDEO_EDITOR,ADMIN"""
+type TranscodingHistory implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  videoId: Int!
+  messageType: String!
+  messageBody: JSON!
+  enqueuedDate: Datetime!
+  createdDate: Datetime!
+
+  """Reads a single `Video` that is related to this `TranscodingHistory`."""
+  video: Video
+}
+
+"""
+A condition to be used against `TranscodingHistory` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input TranscodingHistoryCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """Checks for equality with the object’s `videoId` field."""
+  videoId: Int
+
+  """Checks for equality with the object’s `messageType` field."""
+  messageType: String
+
+  """Checks for equality with the object’s `messageBody` field."""
+  messageBody: JSON
+
+  """Checks for equality with the object’s `enqueuedDate` field."""
+  enqueuedDate: Datetime
+
+  """Checks for equality with the object’s `createdDate` field."""
+  createdDate: Datetime
+}
+
+"""
+A filter to be used against `TranscodingHistory` object types. All fields are combined with a logical ‘and.’
+"""
+input TranscodingHistoryFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `videoId` field."""
+  videoId: IntFilter
+
+  """Filter by the object’s `messageType` field."""
+  messageType: StringFilter
+
+  """Filter by the object’s `messageBody` field."""
+  messageBody: JSONFilter
+
+  """Filter by the object’s `enqueuedDate` field."""
+  enqueuedDate: DatetimeFilter
+
+  """Filter by the object’s `createdDate` field."""
+  createdDate: DatetimeFilter
+
+  """Filter by the object’s `video` relation."""
+  video: VideoFilter
+
+  """Checks for all expressions in this list."""
+  and: [TranscodingHistoryFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [TranscodingHistoryFilter!]
+
+  """Negates the expression."""
+  not: TranscodingHistoryFilter
+}
+
+"""@permissions: ADMIN"""
+type TranscodingProcessingProfile implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  title: String!
+  isValid: Boolean!
+  videoStreamExpression: String
+  audioFileLanguageExpression: String
+  subtitleFileLanguageExpression: String
+  captionFileLanguageExpression: String
+  outputFormat: OutputFormat
+  drmProtection: DrmProtection
+  archiving: Archiving
+  useNativeLanguageNames: Boolean!
+  deleteFilesFromSourceWhenDone: Boolean!
+  drmApiUrl: String
+  drmTenantId: String
+  drmManagementKey: String
+  drmKeySeed: String
+  drmThumbprints: String
+  createdDate: Datetime!
+  updatedDate: Datetime!
+  createdUser: String!
+  updatedUser: String!
+
+  """
+  Reads and enables pagination through a set of `TranscodingVideoRepresentation`.
+  """
+  transcodingVideoRepresentations(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TranscodingVideoRepresentation`."""
+    orderBy: [TranscodingVideoRepresentationsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TranscodingVideoRepresentationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TranscodingVideoRepresentationFilter
+  ): TranscodingVideoRepresentationsConnection!
+}
+
+"""
+A condition to be used against `TranscodingProcessingProfile` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input TranscodingProcessingProfileCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """
+  Checks for equality with the object’s `title` field.
+  @maxLength(100)
+  @notEmpty()
+  """
+  title: String
+
+  """Checks for equality with the object’s `isValid` field."""
+  isValid: Boolean
+
+  """Checks for equality with the object’s `videoStreamExpression` field."""
+  videoStreamExpression: String
+
+  """
+  Checks for equality with the object’s `audioFileLanguageExpression` field.
+  """
+  audioFileLanguageExpression: String
+
+  """
+  Checks for equality with the object’s `subtitleFileLanguageExpression` field.
+  """
+  subtitleFileLanguageExpression: String
+
+  """
+  Checks for equality with the object’s `captionFileLanguageExpression` field.
+  """
+  captionFileLanguageExpression: String
+
+  """Checks for equality with the object’s `outputFormat` field."""
+  outputFormat: OutputFormat
+
+  """Checks for equality with the object’s `drmProtection` field."""
+  drmProtection: DrmProtection
+
+  """Checks for equality with the object’s `archiving` field."""
+  archiving: Archiving
+
+  """Checks for equality with the object’s `useNativeLanguageNames` field."""
+  useNativeLanguageNames: Boolean
+
+  """
+  Checks for equality with the object’s `deleteFilesFromSourceWhenDone` field.
+  """
+  deleteFilesFromSourceWhenDone: Boolean
+
+  """Checks for equality with the object’s `drmApiUrl` field."""
+  drmApiUrl: String
+
+  """Checks for equality with the object’s `drmTenantId` field."""
+  drmTenantId: String
+
+  """Checks for equality with the object’s `drmManagementKey` field."""
+  drmManagementKey: String
+
+  """Checks for equality with the object’s `drmKeySeed` field."""
+  drmKeySeed: String
+
+  """Checks for equality with the object’s `drmThumbprints` field."""
+  drmThumbprints: String
+
+  """Checks for equality with the object’s `createdDate` field."""
+  createdDate: Datetime
+
+  """Checks for equality with the object’s `updatedDate` field."""
+  updatedDate: Datetime
+
+  """Checks for equality with the object’s `createdUser` field."""
+  createdUser: String
+
+  """Checks for equality with the object’s `updatedUser` field."""
+  updatedUser: String
+}
+
+"""
+A filter to be used against `TranscodingProcessingProfile` object types. All fields are combined with a logical ‘and.’
+"""
+input TranscodingProcessingProfileFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `title` field."""
+  title: StringFilter
+
+  """Filter by the object’s `isValid` field."""
+  isValid: BooleanFilter
+
+  """Filter by the object’s `videoStreamExpression` field."""
+  videoStreamExpression: StringFilter
+
+  """Filter by the object’s `audioFileLanguageExpression` field."""
+  audioFileLanguageExpression: StringFilter
+
+  """Filter by the object’s `subtitleFileLanguageExpression` field."""
+  subtitleFileLanguageExpression: StringFilter
+
+  """Filter by the object’s `captionFileLanguageExpression` field."""
+  captionFileLanguageExpression: StringFilter
+
+  """Filter by the object’s `outputFormat` field."""
+  outputFormat: OutputFormatFilter
+
+  """Filter by the object’s `drmProtection` field."""
+  drmProtection: DrmProtectionFilter
+
+  """Filter by the object’s `archiving` field."""
+  archiving: ArchivingFilter
+
+  """Filter by the object’s `useNativeLanguageNames` field."""
+  useNativeLanguageNames: BooleanFilter
+
+  """Filter by the object’s `deleteFilesFromSourceWhenDone` field."""
+  deleteFilesFromSourceWhenDone: BooleanFilter
+
+  """Filter by the object’s `drmApiUrl` field."""
+  drmApiUrl: StringFilter
+
+  """Filter by the object’s `drmTenantId` field."""
+  drmTenantId: StringFilter
+
+  """Filter by the object’s `drmManagementKey` field."""
+  drmManagementKey: StringFilter
+
+  """Filter by the object’s `drmKeySeed` field."""
+  drmKeySeed: StringFilter
+
+  """Filter by the object’s `drmThumbprints` field."""
+  drmThumbprints: StringFilter
+
+  """Filter by the object’s `createdDate` field."""
+  createdDate: DatetimeFilter
+
+  """Filter by the object’s `updatedDate` field."""
+  updatedDate: DatetimeFilter
+
+  """Filter by the object’s `createdUser` field."""
+  createdUser: StringFilter
+
+  """Filter by the object’s `updatedUser` field."""
+  updatedUser: StringFilter
+
+  """Filter by the object’s `transcodingVideoRepresentations` relation."""
+  transcodingVideoRepresentations: TranscodingProcessingProfileToManyTranscodingVideoRepresentationFilter
+
+  """Some related `transcodingVideoRepresentations` exist."""
+  transcodingVideoRepresentationsExist: Boolean
+
+  """Checks for all expressions in this list."""
+  and: [TranscodingProcessingProfileFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [TranscodingProcessingProfileFilter!]
+
+  """Negates the expression."""
+  not: TranscodingProcessingProfileFilter
+}
+
+"""An input for mutations affecting `TranscodingProcessingProfile`"""
+input TranscodingProcessingProfileInput {
+  """
+  @maxLength(100)
+  @notEmpty()
+  """
+  title: String!
+  videoStreamExpression: String
+  audioFileLanguageExpression: String
+  subtitleFileLanguageExpression: String
+  captionFileLanguageExpression: String
+  outputFormat: OutputFormat
+  drmProtection: DrmProtection
+  archiving: Archiving
+  useNativeLanguageNames: Boolean
+  deleteFilesFromSourceWhenDone: Boolean
+  drmApiUrl: String
+  drmTenantId: String
+  drmManagementKey: String
+  drmKeySeed: String
+  drmThumbprints: String
+}
+
+"""
+Represents an update to a `TranscodingProcessingProfile`. Fields that are set will be updated.
+"""
+input TranscodingProcessingProfilePatch {
+  """
+  @maxLength(100)
+  @notEmpty()
+  """
+  title: String
+  videoStreamExpression: String
+  audioFileLanguageExpression: String
+  subtitleFileLanguageExpression: String
+  captionFileLanguageExpression: String
+  outputFormat: OutputFormat
+  drmProtection: DrmProtection
+  archiving: Archiving
+  useNativeLanguageNames: Boolean
+  deleteFilesFromSourceWhenDone: Boolean
+  drmApiUrl: String
+  drmTenantId: String
+  drmManagementKey: String
+  drmKeySeed: String
+  drmThumbprints: String
+}
+
+"""
+A connection to a list of `TranscodingProcessingProfile` values.
+@permissions: ADMIN
+"""
+type TranscodingProcessingProfilesConnection {
+  """A list of `TranscodingProcessingProfile` objects."""
+  nodes: [TranscodingProcessingProfile]!
+
+  """
+  A list of edges which contains the `TranscodingProcessingProfile` and cursor to aid in pagination.
+  """
+  edges: [TranscodingProcessingProfilesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `TranscodingProcessingProfile` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `TranscodingProcessingProfile` edge in the connection."""
+type TranscodingProcessingProfilesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `TranscodingProcessingProfile` at the end of the edge."""
+  node: TranscodingProcessingProfile
+}
+
+"""Methods to use when ordering `TranscodingProcessingProfile`."""
+enum TranscodingProcessingProfilesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  IS_VALID_ASC
+  IS_VALID_DESC
+  VIDEO_STREAM_EXPRESSION_ASC
+  VIDEO_STREAM_EXPRESSION_DESC
+  AUDIO_FILE_LANGUAGE_EXPRESSION_ASC
+  AUDIO_FILE_LANGUAGE_EXPRESSION_DESC
+  SUBTITLE_FILE_LANGUAGE_EXPRESSION_ASC
+  SUBTITLE_FILE_LANGUAGE_EXPRESSION_DESC
+  CAPTION_FILE_LANGUAGE_EXPRESSION_ASC
+  CAPTION_FILE_LANGUAGE_EXPRESSION_DESC
+  OUTPUT_FORMAT_ASC
+  OUTPUT_FORMAT_DESC
+  DRM_PROTECTION_ASC
+  DRM_PROTECTION_DESC
+  ARCHIVING_ASC
+  ARCHIVING_DESC
+  USE_NATIVE_LANGUAGE_NAMES_ASC
+  USE_NATIVE_LANGUAGE_NAMES_DESC
+  DELETE_FILES_FROM_SOURCE_WHEN_DONE_ASC
+  DELETE_FILES_FROM_SOURCE_WHEN_DONE_DESC
+  DRM_API_URL_ASC
+  DRM_API_URL_DESC
+  DRM_TENANT_ID_ASC
+  DRM_TENANT_ID_DESC
+  DRM_MANAGEMENT_KEY_ASC
+  DRM_MANAGEMENT_KEY_DESC
+  DRM_KEY_SEED_ASC
+  DRM_KEY_SEED_DESC
+  DRM_THUMBPRINTS_ASC
+  DRM_THUMBPRINTS_DESC
+  CREATED_DATE_ASC
+  CREATED_DATE_DESC
+  UPDATED_DATE_ASC
+  UPDATED_DATE_DESC
+  CREATED_USER_ASC
+  CREATED_USER_DESC
+  UPDATED_USER_ASC
+  UPDATED_USER_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A filter to be used against many `TranscodingVideoRepresentation` object types.
+All fields are combined with a logical ‘and.’
+"""
+input TranscodingProcessingProfileToManyTranscodingVideoRepresentationFilter {
+  """
+  Every related `TranscodingVideoRepresentation` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  every: TranscodingVideoRepresentationFilter
+
+  """
+  Some related `TranscodingVideoRepresentation` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  some: TranscodingVideoRepresentationFilter
+
+  """
+  No related `TranscodingVideoRepresentation` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  none: TranscodingVideoRepresentationFilter
+}
+
+"""@permissions: ADMIN"""
+type TranscodingPublishingProfile implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  title: String!
+  isValid: Boolean!
+  provider: String
+  uriPath: String
+  credentialsName: String
+  credentialsSecret: String
+  createdDate: Datetime!
+  updatedDate: Datetime!
+  createdUser: String!
+  updatedUser: String!
+}
+
+"""
+A condition to be used against `TranscodingPublishingProfile` object types. All
+fields are tested for equality and combined with a logical ‘and.’
+"""
+input TranscodingPublishingProfileCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """
+  Checks for equality with the object’s `title` field.
+  @maxLength(100)
+  @notEmpty()
+  """
+  title: String
+
+  """Checks for equality with the object’s `isValid` field."""
+  isValid: Boolean
+
+  """Checks for equality with the object’s `provider` field."""
+  provider: String
+
+  """Checks for equality with the object’s `uriPath` field."""
+  uriPath: String
+
+  """Checks for equality with the object’s `credentialsName` field."""
+  credentialsName: String
+
+  """Checks for equality with the object’s `credentialsSecret` field."""
+  credentialsSecret: String
+
+  """Checks for equality with the object’s `createdDate` field."""
+  createdDate: Datetime
+
+  """Checks for equality with the object’s `updatedDate` field."""
+  updatedDate: Datetime
+
+  """Checks for equality with the object’s `createdUser` field."""
+  createdUser: String
+
+  """Checks for equality with the object’s `updatedUser` field."""
+  updatedUser: String
+}
+
+"""
+A filter to be used against `TranscodingPublishingProfile` object types. All fields are combined with a logical ‘and.’
+"""
+input TranscodingPublishingProfileFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `title` field."""
+  title: StringFilter
+
+  """Filter by the object’s `isValid` field."""
+  isValid: BooleanFilter
+
+  """Filter by the object’s `provider` field."""
+  provider: StringFilter
+
+  """Filter by the object’s `uriPath` field."""
+  uriPath: StringFilter
+
+  """Filter by the object’s `credentialsName` field."""
+  credentialsName: StringFilter
+
+  """Filter by the object’s `credentialsSecret` field."""
+  credentialsSecret: StringFilter
+
+  """Filter by the object’s `createdDate` field."""
+  createdDate: DatetimeFilter
+
+  """Filter by the object’s `updatedDate` field."""
+  updatedDate: DatetimeFilter
+
+  """Filter by the object’s `createdUser` field."""
+  createdUser: StringFilter
+
+  """Filter by the object’s `updatedUser` field."""
+  updatedUser: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [TranscodingPublishingProfileFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [TranscodingPublishingProfileFilter!]
+
+  """Negates the expression."""
+  not: TranscodingPublishingProfileFilter
+}
+
+"""
+Represents an update to a `TranscodingPublishingProfile`. Fields that are set will be updated.
+"""
+input TranscodingPublishingProfilePatch {
+  """
+  @maxLength(100)
+  @notEmpty()
+  """
+  title: String
+  uriPath: String
+  credentialsName: String
+  credentialsSecret: String
+}
+
+"""
+A connection to a list of `TranscodingPublishingProfile` values.
+@permissions: ADMIN
+"""
+type TranscodingPublishingProfilesConnection {
+  """A list of `TranscodingPublishingProfile` objects."""
+  nodes: [TranscodingPublishingProfile]!
+
+  """
+  A list of edges which contains the `TranscodingPublishingProfile` and cursor to aid in pagination.
+  """
+  edges: [TranscodingPublishingProfilesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `TranscodingPublishingProfile` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `TranscodingPublishingProfile` edge in the connection."""
+type TranscodingPublishingProfilesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `TranscodingPublishingProfile` at the end of the edge."""
+  node: TranscodingPublishingProfile
+}
+
+"""Methods to use when ordering `TranscodingPublishingProfile`."""
+enum TranscodingPublishingProfilesOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  IS_VALID_ASC
+  IS_VALID_DESC
+  PROVIDER_ASC
+  PROVIDER_DESC
+  URI_PATH_ASC
+  URI_PATH_DESC
+  CREDENTIALS_NAME_ASC
+  CREDENTIALS_NAME_DESC
+  CREDENTIALS_SECRET_ASC
+  CREDENTIALS_SECRET_DESC
+  CREATED_DATE_ASC
+  CREATED_DATE_DESC
+  UPDATED_DATE_ASC
+  UPDATED_DATE_DESC
+  CREATED_USER_ASC
+  CREATED_USER_DESC
+  UPDATED_USER_ASC
+  UPDATED_USER_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+enum TranscodingStatus {
+  WAITING
+  IN_PROGRESS
+  READY
+  ERROR
+}
+
+"""
+A filter to be used against TranscodingStatus fields. All fields are combined with a logical ‘and.’
+"""
+input TranscodingStatusFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: TranscodingStatus
+
+  """Not equal to the specified value."""
+  notEqualTo: TranscodingStatus
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: TranscodingStatus
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: TranscodingStatus
+
+  """Included in the specified list."""
+  in: [TranscodingStatus!]
+
+  """Not included in the specified list."""
+  notIn: [TranscodingStatus!]
+
+  """Less than the specified value."""
+  lessThan: TranscodingStatus
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: TranscodingStatus
+
+  """Greater than the specified value."""
+  greaterThan: TranscodingStatus
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: TranscodingStatus
+}
+
+"""@permissions: ADMIN"""
+type TranscodingVideoRepresentation implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  transcodingProcessingProfileId: Int!
+  width: Int
+  height: Int
+  bitrateInKbps: Int!
+
+  """
+  Reads a single `TranscodingProcessingProfile` that is related to this `TranscodingVideoRepresentation`.
+  """
+  transcodingProcessingProfile: TranscodingProcessingProfile
+}
+
+"""
+A condition to be used against `TranscodingVideoRepresentation` object types.
+All fields are tested for equality and combined with a logical ‘and.’
+"""
+input TranscodingVideoRepresentationCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """
+  Checks for equality with the object’s `transcodingProcessingProfileId` field.
+  """
+  transcodingProcessingProfileId: Int
+
+  """Checks for equality with the object’s `width` field."""
+  width: Int
+
+  """Checks for equality with the object’s `height` field."""
+  height: Int
+
+  """Checks for equality with the object’s `bitrateInKbps` field."""
+  bitrateInKbps: Int
+}
+
+"""
+A filter to be used against `TranscodingVideoRepresentation` object types. All fields are combined with a logical ‘and.’
+"""
+input TranscodingVideoRepresentationFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `transcodingProcessingProfileId` field."""
+  transcodingProcessingProfileId: IntFilter
+
+  """Filter by the object’s `width` field."""
+  width: IntFilter
+
+  """Filter by the object’s `height` field."""
+  height: IntFilter
+
+  """Filter by the object’s `bitrateInKbps` field."""
+  bitrateInKbps: IntFilter
+
+  """Filter by the object’s `transcodingProcessingProfile` relation."""
+  transcodingProcessingProfile: TranscodingProcessingProfileFilter
+
+  """Checks for all expressions in this list."""
+  and: [TranscodingVideoRepresentationFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [TranscodingVideoRepresentationFilter!]
+
+  """Negates the expression."""
+  not: TranscodingVideoRepresentationFilter
+}
+
+"""An input for mutations affecting `TranscodingVideoRepresentation`"""
+input TranscodingVideoRepresentationInput {
+  transcodingProcessingProfileId: Int!
+  width: Int
+  height: Int
+  bitrateInKbps: Int!
+}
+
+"""
+Represents an update to a `TranscodingVideoRepresentation`. Fields that are set will be updated.
+"""
+input TranscodingVideoRepresentationPatch {
+  width: Int
+  height: Int
+  bitrateInKbps: Int
+}
+
+"""
+A connection to a list of `TranscodingVideoRepresentation` values.
+@permissions: ADMIN
+"""
+type TranscodingVideoRepresentationsConnection {
+  """A list of `TranscodingVideoRepresentation` objects."""
+  nodes: [TranscodingVideoRepresentation]!
+
+  """
+  A list of edges which contains the `TranscodingVideoRepresentation` and cursor to aid in pagination.
+  """
+  edges: [TranscodingVideoRepresentationsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `TranscodingVideoRepresentation` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `TranscodingVideoRepresentation` edge in the connection."""
+type TranscodingVideoRepresentationsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `TranscodingVideoRepresentation` at the end of the edge."""
+  node: TranscodingVideoRepresentation
+}
+
+"""Methods to use when ordering `TranscodingVideoRepresentation`."""
+enum TranscodingVideoRepresentationsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TRANSCODING_PROCESSING_PROFILE_ID_ASC
+  TRANSCODING_PROCESSING_PROFILE_ID_DESC
+  WIDTH_ASC
+  WIDTH_DESC
+  HEIGHT_ASC
+  HEIGHT_DESC
+  BITRATE_IN_KBPS_ASC
+  BITRATE_IN_KBPS_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+All input for the `updateTranscodingAcquisitionProfileByNodeId` mutation.
+@permissions: ADMIN
+"""
+input UpdateTranscodingAcquisitionProfileByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `TranscodingAcquisitionProfile` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `TranscodingAcquisitionProfile` being updated.
+  """
+  patch: TranscodingAcquisitionProfilePatch!
+}
+
+"""
+All input for the `updateTranscodingAcquisitionProfile` mutation.
+@permissions: ADMIN
+"""
+input UpdateTranscodingAcquisitionProfileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `TranscodingAcquisitionProfile` being updated.
+  """
+  patch: TranscodingAcquisitionProfilePatch!
+  id: Int!
+}
+
+"""The output of our update `TranscodingAcquisitionProfile` mutation."""
+type UpdateTranscodingAcquisitionProfilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TranscodingAcquisitionProfile` that was updated by this mutation."""
+  transcodingAcquisitionProfile: TranscodingAcquisitionProfile
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `TranscodingAcquisitionProfile`. May be used by Relay 1.
+  """
+  transcodingAcquisitionProfileEdge(
+    """The method to use when ordering `TranscodingAcquisitionProfile`."""
+    orderBy: [TranscodingAcquisitionProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TranscodingAcquisitionProfilesEdge
+}
+
+"""
+All input for the `updateTranscodingProcessingProfileByNodeId` mutation.
+@permissions: ADMIN
+"""
+input UpdateTranscodingProcessingProfileByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `TranscodingProcessingProfile` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `TranscodingProcessingProfile` being updated.
+  """
+  patch: TranscodingProcessingProfilePatch!
+}
+
+"""
+All input for the `updateTranscodingProcessingProfile` mutation.
+@permissions: ADMIN
+"""
+input UpdateTranscodingProcessingProfileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `TranscodingProcessingProfile` being updated.
+  """
+  patch: TranscodingProcessingProfilePatch!
+  id: Int!
+}
+
+"""The output of our update `TranscodingProcessingProfile` mutation."""
+type UpdateTranscodingProcessingProfilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TranscodingProcessingProfile` that was updated by this mutation."""
+  transcodingProcessingProfile: TranscodingProcessingProfile
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `TranscodingProcessingProfile`. May be used by Relay 1.
+  """
+  transcodingProcessingProfileEdge(
+    """The method to use when ordering `TranscodingProcessingProfile`."""
+    orderBy: [TranscodingProcessingProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TranscodingProcessingProfilesEdge
+}
+
+"""
+All input for the `updateTranscodingPublishingProfileByNodeId` mutation.
+@permissions: ADMIN
+"""
+input UpdateTranscodingPublishingProfileByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `TranscodingPublishingProfile` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `TranscodingPublishingProfile` being updated.
+  """
+  patch: TranscodingPublishingProfilePatch!
+}
+
+"""
+All input for the `updateTranscodingPublishingProfile` mutation.
+@permissions: ADMIN
+"""
+input UpdateTranscodingPublishingProfileInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `TranscodingPublishingProfile` being updated.
+  """
+  patch: TranscodingPublishingProfilePatch!
+  id: Int!
+}
+
+"""The output of our update `TranscodingPublishingProfile` mutation."""
+type UpdateTranscodingPublishingProfilePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TranscodingPublishingProfile` that was updated by this mutation."""
+  transcodingPublishingProfile: TranscodingPublishingProfile
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  An edge for our `TranscodingPublishingProfile`. May be used by Relay 1.
+  """
+  transcodingPublishingProfileEdge(
+    """The method to use when ordering `TranscodingPublishingProfile`."""
+    orderBy: [TranscodingPublishingProfilesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TranscodingPublishingProfilesEdge
+}
+
+"""
+All input for the `updateTranscodingVideoRepresentationByNodeId` mutation.
+@permissions: ADMIN
+"""
+input UpdateTranscodingVideoRepresentationByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `TranscodingVideoRepresentation` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `TranscodingVideoRepresentation` being updated.
+  """
+  patch: TranscodingVideoRepresentationPatch!
+}
+
+"""
+All input for the `updateTranscodingVideoRepresentation` mutation.
+@permissions: ADMIN
+"""
+input UpdateTranscodingVideoRepresentationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `TranscodingVideoRepresentation` being updated.
+  """
+  patch: TranscodingVideoRepresentationPatch!
+  id: Int!
+}
+
+"""The output of our update `TranscodingVideoRepresentation` mutation."""
+type UpdateTranscodingVideoRepresentationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """
+  The `TranscodingVideoRepresentation` that was updated by this mutation.
+  """
+  transcodingVideoRepresentation: TranscodingVideoRepresentation
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `TranscodingProcessingProfile` that is related to this `TranscodingVideoRepresentation`.
+  """
+  transcodingProcessingProfile: TranscodingProcessingProfile
+
+  """
+  An edge for our `TranscodingVideoRepresentation`. May be used by Relay 1.
+  """
+  transcodingVideoRepresentationEdge(
+    """The method to use when ordering `TranscodingVideoRepresentation`."""
+    orderBy: [TranscodingVideoRepresentationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TranscodingVideoRepresentationsEdge
+}
+
+"""
+All input for the `updateVideoByExternalId` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input UpdateVideoByExternalIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Video` being updated.
+  """
+  patch: VideoPatch!
+  externalId: String!
+}
+
+"""
+All input for the `updateVideoByNodeId` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input UpdateVideoByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Video` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Video` being updated.
+  """
+  patch: VideoPatch!
+}
+
+"""
+All input for the `updateVideoBySourceLocation` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input UpdateVideoBySourceLocationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Video` being updated.
+  """
+  patch: VideoPatch!
+  sourceLocation: String!
+}
+
+"""
+All input for the `updateVideo` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input UpdateVideoInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Video` being updated.
+  """
+  patch: VideoPatch!
+  id: Int!
+}
+
+"""The output of our update `Video` mutation."""
+type UpdateVideoPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Video` that was updated by this mutation."""
+  video: Video
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Video`. May be used by Relay 1."""
+  videoEdge(
+    """The method to use when ordering `Video`."""
+    orderBy: [VideosOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideosEdge
+}
+
+"""
+All input for the `updateVideosTagByNodeId` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input UpdateVideosTagByNodeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `VideosTag` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `VideosTag` being updated.
+  """
+  patch: VideosTagPatch!
+}
+
+"""
+All input for the `updateVideosTag` mutation.
+@permissions: VIDEO_EDITOR,ADMIN
+"""
+input UpdateVideosTagInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `VideosTag` being updated.
+  """
+  patch: VideosTagPatch!
+  videoId: Int!
+
+  """@notEmpty()"""
+  name: String!
+}
+
+"""The output of our update `VideosTag` mutation."""
+type UpdateVideosTagPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `VideosTag` that was updated by this mutation."""
+  videosTag: VideosTag
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Video` that is related to this `VideosTag`."""
+  video: Video
+
+  """An edge for our `VideosTag`. May be used by Relay 1."""
+  videosTagEdge(
+    """The method to use when ordering `VideosTag`."""
+    orderBy: [VideosTagsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): VideosTagsEdge
+}
+
+"""@permissions: VIDEO_READER,VIDEO_EDITOR,ADMIN"""
+type Video implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  id: Int!
+  title: String!
+  externalId: String
+  jobId: String
+  drmKeyId: String
+  isProtected: Boolean!
+  sourceFileName: String
+  sourceFileExtension: String
+  sourceLocation: String!
+  sourceSizeInBytes: BigInt
+  audioLanguages: [String]
+  subtitleLanguages: [String]
+  captionLanguages: [String]
+  videoBitrates: [Int]
+  transcodingStatus: TranscodingStatus
+  outputFormat: OutputFormat
+  qaStatus: QaStatus
+  qaComment: String
+  acquisitionProgress: Int
+  encodingProgress: Int
+  hlsSizeInBytes: BigInt
+  dashSizeInBytes: BigInt
+  cmafSizeInBytes: BigInt
+  hlsManifestPath: String
+  dashManifestPath: String
+  durationInSeconds: Int
+  isArchived: Boolean!
+  finishedDate: Datetime
+  createdDate: Datetime!
+  updatedDate: Datetime!
+  createdUser: String!
+  updatedUser: String!
+
+  """Reads and enables pagination through a set of `VideosTag`."""
+  videosTags(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `VideosTag`."""
+    orderBy: [VideosTagsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: VideosTagCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: VideosTagFilter
+  ): VideosTagsConnection!
+
+  """Reads and enables pagination through a set of `TranscodingHistory`."""
+  transcodingHistories(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TranscodingHistory`."""
+    orderBy: [TranscodingHistoriesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TranscodingHistoryCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TranscodingHistoryFilter
+  ): TranscodingHistoriesConnection!
+  overallProgress: Float!
+}
+
+"""
+A condition to be used against `Video` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input VideoCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: Int
+
+  """
+  Checks for equality with the object’s `title` field.
+  @maxLength(100)
+  @notEmpty()
+  """
+  title: String
+
+  """Checks for equality with the object’s `externalId` field."""
+  externalId: String
+
+  """Checks for equality with the object’s `jobId` field."""
+  jobId: String
+
+  """Checks for equality with the object’s `drmKeyId` field."""
+  drmKeyId: String
+
+  """Checks for equality with the object’s `isProtected` field."""
+  isProtected: Boolean
+
+  """Checks for equality with the object’s `sourceFileName` field."""
+  sourceFileName: String
+
+  """Checks for equality with the object’s `sourceFileExtension` field."""
+  sourceFileExtension: String
+
+  """Checks for equality with the object’s `sourceLocation` field."""
+  sourceLocation: String
+
+  """Checks for equality with the object’s `sourceSizeInBytes` field."""
+  sourceSizeInBytes: BigInt
+
+  """Checks for equality with the object’s `audioLanguages` field."""
+  audioLanguages: [String]
+
+  """Checks for equality with the object’s `subtitleLanguages` field."""
+  subtitleLanguages: [String]
+
+  """Checks for equality with the object’s `captionLanguages` field."""
+  captionLanguages: [String]
+
+  """Checks for equality with the object’s `videoBitrates` field."""
+  videoBitrates: [Int]
+
+  """Checks for equality with the object’s `transcodingStatus` field."""
+  transcodingStatus: TranscodingStatus
+
+  """Checks for equality with the object’s `outputFormat` field."""
+  outputFormat: OutputFormat
+
+  """Checks for equality with the object’s `qaStatus` field."""
+  qaStatus: QaStatus
+
+  """Checks for equality with the object’s `qaComment` field."""
+  qaComment: String
+
+  """Checks for equality with the object’s `acquisitionProgress` field."""
+  acquisitionProgress: Int
+
+  """Checks for equality with the object’s `encodingProgress` field."""
+  encodingProgress: Int
+
+  """Checks for equality with the object’s `hlsSizeInBytes` field."""
+  hlsSizeInBytes: BigInt
+
+  """Checks for equality with the object’s `dashSizeInBytes` field."""
+  dashSizeInBytes: BigInt
+
+  """Checks for equality with the object’s `cmafSizeInBytes` field."""
+  cmafSizeInBytes: BigInt
+
+  """Checks for equality with the object’s `hlsManifestPath` field."""
+  hlsManifestPath: String
+
+  """Checks for equality with the object’s `dashManifestPath` field."""
+  dashManifestPath: String
+
+  """Checks for equality with the object’s `durationInSeconds` field."""
+  durationInSeconds: Int
+
+  """Checks for equality with the object’s `isArchived` field."""
+  isArchived: Boolean
+
+  """Checks for equality with the object’s `finishedDate` field."""
+  finishedDate: Datetime
+
+  """Checks for equality with the object’s `createdDate` field."""
+  createdDate: Datetime
+
+  """Checks for equality with the object’s `updatedDate` field."""
+  updatedDate: Datetime
+
+  """Checks for equality with the object’s `createdUser` field."""
+  createdUser: String
+
+  """Checks for equality with the object’s `updatedUser` field."""
+  updatedUser: String
+}
+
+"""
+A filter to be used against `Video` object types. All fields are combined with a logical ‘and.’
+"""
+input VideoFilter {
+  """Filter by the object’s `id` field."""
+  id: IntFilter
+
+  """Filter by the object’s `title` field."""
+  title: StringFilter
+
+  """Filter by the object’s `externalId` field."""
+  externalId: StringFilter
+
+  """Filter by the object’s `jobId` field."""
+  jobId: StringFilter
+
+  """Filter by the object’s `drmKeyId` field."""
+  drmKeyId: StringFilter
+
+  """Filter by the object’s `isProtected` field."""
+  isProtected: BooleanFilter
+
+  """Filter by the object’s `sourceFileName` field."""
+  sourceFileName: StringFilter
+
+  """Filter by the object’s `sourceFileExtension` field."""
+  sourceFileExtension: StringFilter
+
+  """Filter by the object’s `sourceLocation` field."""
+  sourceLocation: StringFilter
+
+  """Filter by the object’s `sourceSizeInBytes` field."""
+  sourceSizeInBytes: BigIntFilter
+
+  """Filter by the object’s `audioLanguages` field."""
+  audioLanguages: StringListFilter
+
+  """Filter by the object’s `subtitleLanguages` field."""
+  subtitleLanguages: StringListFilter
+
+  """Filter by the object’s `captionLanguages` field."""
+  captionLanguages: StringListFilter
+
+  """Filter by the object’s `videoBitrates` field."""
+  videoBitrates: IntListFilter
+
+  """Filter by the object’s `transcodingStatus` field."""
+  transcodingStatus: TranscodingStatusFilter
+
+  """Filter by the object’s `outputFormat` field."""
+  outputFormat: OutputFormatFilter
+
+  """Filter by the object’s `qaStatus` field."""
+  qaStatus: QaStatusFilter
+
+  """Filter by the object’s `qaComment` field."""
+  qaComment: StringFilter
+
+  """Filter by the object’s `acquisitionProgress` field."""
+  acquisitionProgress: IntFilter
+
+  """Filter by the object’s `encodingProgress` field."""
+  encodingProgress: IntFilter
+
+  """Filter by the object’s `hlsSizeInBytes` field."""
+  hlsSizeInBytes: BigIntFilter
+
+  """Filter by the object’s `dashSizeInBytes` field."""
+  dashSizeInBytes: BigIntFilter
+
+  """Filter by the object’s `cmafSizeInBytes` field."""
+  cmafSizeInBytes: BigIntFilter
+
+  """Filter by the object’s `hlsManifestPath` field."""
+  hlsManifestPath: StringFilter
+
+  """Filter by the object’s `dashManifestPath` field."""
+  dashManifestPath: StringFilter
+
+  """Filter by the object’s `durationInSeconds` field."""
+  durationInSeconds: IntFilter
+
+  """Filter by the object’s `isArchived` field."""
+  isArchived: BooleanFilter
+
+  """Filter by the object’s `finishedDate` field."""
+  finishedDate: DatetimeFilter
+
+  """Filter by the object’s `createdDate` field."""
+  createdDate: DatetimeFilter
+
+  """Filter by the object’s `updatedDate` field."""
+  updatedDate: DatetimeFilter
+
+  """Filter by the object’s `createdUser` field."""
+  createdUser: StringFilter
+
+  """Filter by the object’s `updatedUser` field."""
+  updatedUser: StringFilter
+
+  """Filter by the object’s `videosTags` relation."""
+  videosTags: VideoToManyVideosTagFilter
+
+  """Some related `videosTags` exist."""
+  videosTagsExist: Boolean
+
+  """Filter by the object’s `transcodingHistories` relation."""
+  transcodingHistories: VideoToManyTranscodingHistoryFilter
+
+  """Some related `transcodingHistories` exist."""
+  transcodingHistoriesExist: Boolean
+
+  """Checks for all expressions in this list."""
+  and: [VideoFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [VideoFilter!]
+
+  """Negates the expression."""
+  not: VideoFilter
+}
+
+"""
+Represents an update to a `Video`. Fields that are set will be updated.
+"""
+input VideoPatch {
+  """
+  @maxLength(100)
+  @notEmpty()
+  """
+  title: String
+  qaStatus: QaStatus
+  qaComment: String
+  isArchived: Boolean
+}
+
+"""
+A connection to a list of `Video` values.
+@permissions: VIDEO_READER,VIDEO_EDITOR,ADMIN
+"""
+type VideosConnection {
+  """A list of `Video` objects."""
+  nodes: [Video]!
+
+  """
+  A list of edges which contains the `Video` and cursor to aid in pagination.
+  """
+  edges: [VideosEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Video` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Video` edge in the connection."""
+type VideosEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Video` at the end of the edge."""
+  node: Video
+}
+
+"""Methods to use when ordering `Video`."""
+enum VideosOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  EXTERNAL_ID_ASC
+  EXTERNAL_ID_DESC
+  JOB_ID_ASC
+  JOB_ID_DESC
+  DRM_KEY_ID_ASC
+  DRM_KEY_ID_DESC
+  IS_PROTECTED_ASC
+  IS_PROTECTED_DESC
+  SOURCE_FILE_NAME_ASC
+  SOURCE_FILE_NAME_DESC
+  SOURCE_FILE_EXTENSION_ASC
+  SOURCE_FILE_EXTENSION_DESC
+  SOURCE_LOCATION_ASC
+  SOURCE_LOCATION_DESC
+  SOURCE_SIZE_IN_BYTES_ASC
+  SOURCE_SIZE_IN_BYTES_DESC
+  AUDIO_LANGUAGES_ASC
+  AUDIO_LANGUAGES_DESC
+  SUBTITLE_LANGUAGES_ASC
+  SUBTITLE_LANGUAGES_DESC
+  CAPTION_LANGUAGES_ASC
+  CAPTION_LANGUAGES_DESC
+  VIDEO_BITRATES_ASC
+  VIDEO_BITRATES_DESC
+  TRANSCODING_STATUS_ASC
+  TRANSCODING_STATUS_DESC
+  OUTPUT_FORMAT_ASC
+  OUTPUT_FORMAT_DESC
+  QA_STATUS_ASC
+  QA_STATUS_DESC
+  QA_COMMENT_ASC
+  QA_COMMENT_DESC
+  ACQUISITION_PROGRESS_ASC
+  ACQUISITION_PROGRESS_DESC
+  ENCODING_PROGRESS_ASC
+  ENCODING_PROGRESS_DESC
+  HLS_SIZE_IN_BYTES_ASC
+  HLS_SIZE_IN_BYTES_DESC
+  DASH_SIZE_IN_BYTES_ASC
+  DASH_SIZE_IN_BYTES_DESC
+  CMAF_SIZE_IN_BYTES_ASC
+  CMAF_SIZE_IN_BYTES_DESC
+  HLS_MANIFEST_PATH_ASC
+  HLS_MANIFEST_PATH_DESC
+  DASH_MANIFEST_PATH_ASC
+  DASH_MANIFEST_PATH_DESC
+  DURATION_IN_SECONDS_ASC
+  DURATION_IN_SECONDS_DESC
+  IS_ARCHIVED_ASC
+  IS_ARCHIVED_DESC
+  FINISHED_DATE_ASC
+  FINISHED_DATE_DESC
+  CREATED_DATE_ASC
+  CREATED_DATE_DESC
+  UPDATED_DATE_ASC
+  UPDATED_DATE_DESC
+  CREATED_USER_ASC
+  CREATED_USER_DESC
+  UPDATED_USER_ASC
+  UPDATED_USER_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""@permissions: VIDEO_READER,VIDEO_EDITOR,ADMIN"""
+type VideosTag implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  videoId: Int!
+  name: String!
+
+  """Reads a single `Video` that is related to this `VideosTag`."""
+  video: Video
+}
+
+"""
+A condition to be used against `VideosTag` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input VideosTagCondition {
+  """Checks for equality with the object’s `videoId` field."""
+  videoId: Int
+
+  """
+  Checks for equality with the object’s `name` field.
+  @notEmpty()
+  """
+  name: String
+}
+
+"""
+A filter to be used against `VideosTag` object types. All fields are combined with a logical ‘and.’
+"""
+input VideosTagFilter {
+  """Filter by the object’s `videoId` field."""
+  videoId: IntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `video` relation."""
+  video: VideoFilter
+
+  """Checks for all expressions in this list."""
+  and: [VideosTagFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [VideosTagFilter!]
+
+  """Negates the expression."""
+  not: VideosTagFilter
+}
+
+"""An input for mutations affecting `VideosTag`"""
+input VideosTagInput {
+  videoId: Int!
+
+  """@notEmpty()"""
+  name: String!
+}
+
+"""
+Represents an update to a `VideosTag`. Fields that are set will be updated.
+"""
+input VideosTagPatch {
+  videoId: Int
+
+  """@notEmpty()"""
+  name: String
+}
+
+"""
+A connection to a list of `VideosTag` values.
+@permissions: VIDEO_READER,VIDEO_EDITOR,ADMIN
+"""
+type VideosTagsConnection {
+  """A list of `VideosTag` objects."""
+  nodes: [VideosTag]!
+
+  """
+  A list of edges which contains the `VideosTag` and cursor to aid in pagination.
+  """
+  edges: [VideosTagsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `VideosTag` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `VideosTag` edge in the connection."""
+type VideosTagsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `VideosTag` at the end of the edge."""
+  node: VideosTag
+}
+
+"""Methods to use when ordering `VideosTag`."""
+enum VideosTagsOrderBy {
+  NATURAL
+  VIDEO_ID_ASC
+  VIDEO_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+type VideoSubscriptionPayload {
+  id: Int!
+  video: Video
+  event: String
+}
+
+"""
+A filter to be used against many `TranscodingHistory` object types. All fields are combined with a logical ‘and.’
+"""
+input VideoToManyTranscodingHistoryFilter {
+  """
+  Every related `TranscodingHistory` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  every: TranscodingHistoryFilter
+
+  """
+  Some related `TranscodingHistory` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  some: TranscodingHistoryFilter
+
+  """
+  No related `TranscodingHistory` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  none: TranscodingHistoryFilter
+}
+
+"""
+A filter to be used against many `VideosTag` object types. All fields are combined with a logical ‘and.’
+"""
+input VideoToManyVideosTagFilter {
+  """
+  Every related `VideosTag` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  every: VideosTagFilter
+
+  """
+  Some related `VideosTag` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  some: VideosTagFilter
+
+  """
+  No related `VideosTag` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  none: VideosTagFilter
+}

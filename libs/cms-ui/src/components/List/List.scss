@@ -1,0 +1,25 @@
+@import '../../variables';
+
+.wrapper {
+  height: 100%;
+  min-width: 0px;
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: 2px;
+  background-color: var(
+    --explorer-background-color,
+    $explorer-background-color
+  );
+
+  .NoData,
+  .LoadingData {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .Error {
+    display: grid;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+}

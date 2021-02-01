@@ -1,0 +1,33 @@
+query Application($id: UUID!) {
+  application(id: $id) {
+    id
+    tenantId
+    name
+    allowedOrigins
+    interimAdministratorEmail
+    enabled
+    createdAt
+    createdBy
+    updatedAt
+    updatedBy
+  }
+}
+mutation UpdateApplication($input: UpdateApplicationInput!) {
+  updateApplication(input: $input) {
+    clientMutationId
+    application {
+      name
+      allowedOrigins
+      interimAdministratorEmail
+      enabled
+      updatedAt
+      updatedBy
+    }
+  }
+}
+
+mutation DeleteApplication($input: DeleteApplicationInput!) {
+  deleteApplication(input: $input) {
+    clientMutationId
+  }
+}

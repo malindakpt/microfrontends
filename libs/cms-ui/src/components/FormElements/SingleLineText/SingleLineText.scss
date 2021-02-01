@@ -1,0 +1,48 @@
+@import '../../../variables.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: var(--label-size, $label-size) 1fr;
+  grid-template-rows: 1fr min-content;
+  align-items: center;
+  margin-bottom: 10px;
+
+  label {
+    color: var(--input-label-color, $input-label-color);
+  }
+
+  input {
+    color: var(--input-color, $input-color);
+    border: 1px solid var(--input-border-color, $input-border-color);
+    padding: 10px 12px;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+
+    transition: box-shadow 0.15s ease-in-out 0s;
+
+    &.hasError {
+      border: 1px solid
+        var(--input-invalid-border-color, $input-invalid-border-color);
+    }
+  }
+
+  input:hover {
+    border: 1px solid var(--input-hover-color, $input-hover-color);
+    box-shadow: 0 0 0 2px var(--input-hover-color, $input-hover-color);
+
+    &.hasError {
+      border: 1px solid
+        var(--input-invalid-border-color, $input-invalid-border-color);
+      box-shadow: 0 0 0 2px
+        var(--input-invalid-hover-color, $input-invalid-hover-color);
+    }
+  }
+
+  small {
+    grid-row: 2;
+    grid-column: 2;
+
+    color: var(--input-invalid-color, $input-invalid-color);
+  }
+}

@@ -1,0 +1,54 @@
+@import '../../variables.scss';
+
+.container {
+  height: calc(100vh - #{$header-height});
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: min-content 1fr;
+  overflow: hidden;
+
+  background-color: var(
+    --explorer-background-color,
+    $explorer-background-color
+  );
+
+  .createIcon {
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: var(--page-header-min-height, 95px);
+    height: var(--page-header-min-height, 95px);
+    background-color: var(
+      --explorer-action-button-color,
+      $explorer-action-button-color
+    );
+
+    .content {
+      .createImage {
+        width: 40px;
+        .svgPlus {
+          height: 40px;
+          stroke: white;
+        }
+      }
+      .text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  // Place PageHeader at the top
+  > div:first-child {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
+
+  // Extend all components, except PageHeader, to the bottom
+  // Enable scrolling on these components
+  > div:not(:first-child) {
+    grid-row: 2 / -1;
+    overflow-y: auto;
+  }
+}

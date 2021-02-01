@@ -1,0 +1,42 @@
+{
+  "name": "@ax/id-guard",
+  "version": "0.0.19",
+  "private": true,
+  "description": "PostGraphile plugin that wraps root & relational GraphQL endpoints with authorization resolver checks.",
+  "main": "dist/index.js",
+  "repository": "",
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn clean && tsc",
+    "start:dev": "tsc -w",
+    "test": "jest --silent",
+    "test:watch": "jest --watch --silent",
+    "test:cov": "jest --coverage --silent",
+    "posttest:cov": "ts-node ../../scripts/open-coverage.command.ts -- libs/ax-guard",
+    "test:debug": "node --inspect-brk -r ts-node/register ../../node_modules/jest/bin/jest.js --runInBand --silent"
+  },
+  "keywords": [],
+  "author": "Axinom",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-bearer-token": "^2.4.0",
+    "graphile-build": "^4.5.0",
+    "graphile-build-pg": "^4.5.3",
+    "graphile-utils": "^4.5.6",
+    "graphql": "^14.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "ono": "^7.1.2",
+    "pg": "^8.0.2"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.9.0",
+    "typescript": "^3.8.3"
+  }
+}

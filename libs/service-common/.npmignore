@@ -1,0 +1,9 @@
+# Ignores TypeScript files, but keeps definitions.
+tsconfig.json
+.prettierrc
+.vscode
+.eslintignore
+.eslintrc.json
+src
+scripts
+coverage

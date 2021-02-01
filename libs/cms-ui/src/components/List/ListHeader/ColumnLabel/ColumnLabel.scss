@@ -1,0 +1,35 @@
+@import '../../../../variables';
+
+.container {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: auto 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  .label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 15px;
+  }
+
+  &.sortable {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  user-select: none;
+
+  svg {
+    height: 20px;
+
+    polygon {
+      fill: #d5d5d5;
+
+      &.sorted {
+        fill: #76a2b3;
+      }
+    }
+  }
+}

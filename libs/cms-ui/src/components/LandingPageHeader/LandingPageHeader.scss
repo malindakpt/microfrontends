@@ -1,0 +1,16 @@
+@import '../../variables.scss';
+
+.container {
+  text-align: center;
+
+  .title {
+    font-size: 36px;
+    color: var(--landingpage-title-color, $landingpage-title-color);
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: var(--landingpage-subtitle-color, $landingpage-subtitle-color);
+    font-weight: normal;
+  }
+}

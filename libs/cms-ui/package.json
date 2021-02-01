@@ -1,0 +1,60 @@
+{
+  "name": "@ax/cms-ui",
+  "version": "0.0.1",
+  "private": true,
+  "description": "UI Components for building Axinom CMS applications",
+  "author": "Axinom",
+  "license": "UNLICENSED",
+  "repository": "",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "run-s lint:CI test clean build",
+    "clean": "rimraf ./dist",
+    "build": "yarn clean && cross-env NODE_ENV=production rollup -c",
+    "start:dev": "rollup -c -w",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --loglevel silent",
+    "lint": "tsc --noEmit && eslint src/**/*.{js,ts,tsx} --fix",
+    "lint:warn": "tsc --noEmit && eslint src/**/*.{js,ts,tsx} --fix",
+    "lint:CI": "tsc --noEmit && eslint src/**/*.{js,ts,tsx} --quiet",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/static",
+    "build-storybook": "build-storybook -s ./.storybook/static"
+  },
+  "dependencies": {
+    "@ax/core": "^1.0.0",
+    "clsx": "^1.1.0",
+    "lodash": "^4.17.15",
+    "react-content-loader": "^4.3.4",
+    "react-transition-group": "^4.3.0",
+    "yup": "^0.28.3"
+  },
+  "peerDependencies": {
+    "formik": ">=2.1.4",
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1",
+    "react-router-dom": ">=5.1.2"
+  },
+  "devDependencies": {
+    "@storybook/react": "^5.3.13",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.8.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^1.31.0",
+    "typescript": "^3.8.3",
+    "typescript-plugin-css-modules": "^2.3.0"
+  }
+}

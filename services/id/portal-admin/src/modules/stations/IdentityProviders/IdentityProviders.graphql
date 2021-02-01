@@ -1,0 +1,8 @@
+query IdpConfigurationsCount($condition: IdpConfigurationCondition) {
+  idpConfigurations(condition: $condition) {
+    totalCount
+    nodes {
+      enabled
+    }
+  }
+}

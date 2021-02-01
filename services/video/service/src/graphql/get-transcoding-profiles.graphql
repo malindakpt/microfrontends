@@ -1,0 +1,41 @@
+query GetTranscodingProfiles($processingProfileId: Int!) {
+  transcodingAcquisitionProfiles(first: 1) {
+    nodes {
+      provider
+      uriPath
+      readCredentialsName
+      readCredentialsSecret
+    }
+  }
+  transcodingPublishingProfiles(first: 1) {
+    nodes {
+      provider
+      uriPath
+      credentialsName
+      credentialsSecret
+    }
+  }
+  transcodingProcessingProfile(id: $processingProfileId) {
+    videoStreamExpression
+    audioFileLanguageExpression
+    subtitleFileLanguageExpression
+    captionFileLanguageExpression
+    outputFormat
+    drmProtection
+    archiving
+    useNativeLanguageNames
+    deleteFilesFromSourceWhenDone
+    drmApiUrl
+    drmKeySeed
+    drmManagementKey
+    drmTenantId
+    drmThumbprints
+    transcodingVideoRepresentations {
+      nodes {
+        width
+        height
+        bitrateInKbps
+      }
+    }
+  }
+}

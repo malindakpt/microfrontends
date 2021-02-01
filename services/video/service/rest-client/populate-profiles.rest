@@ -1,0 +1,58 @@
+POST http://localhost:10100/graphql HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+mutation UpdateProfiles {
+  updateTranscodingAcquisitionProfile(
+    input: {
+      patch: {
+        uriPath: "https://navyplayground.blob.core.windows.net/source/"
+        readCredentialsName: "navyplayground"
+        readCredentialsSecret: "JoxZsrK99yHMHngrEYr1IpQX6XGvd2Njz1gqhRyAe4ovxf+5RnYzHN9cJtfBLalN3khMjB5IWyNLM0xA17vaGnR6ygUm6Qobyy2Hg7o5yfZ+EPwP3Oa0HI6B78Nq4WntoYimW4hZlOFXFi5imgabyAkQZEcoE6UAfhAZWpcC9bu1OqlvKr244PSFPMLp2U/21Q/PVM4E4GBk4xYaTnXYCbAvj6WUBLIeDPyR3qy+/1g98IsHbmgTh+gfMMDEYc74AIJ/8+6H2MRNRP7CWn6EXTLSgjzG8rLYCdNQBUdNpbGT0K/EsoDzc0GBWXf1SX1suqrfUPA+uTfoFaD0P0zbszDESFuhqvc5DDhhkATpQpxPQpKYooTUu+693LYEEFsMPCbpif/48G2pRVwcwzO0dVYgNnjXH6q1L265dQ7oZRTYxnlowgqDA9AtaHCY6YzGCy0yjJGLI++CsXRYfG6yv6azNoQPYc9iH8PdtGqzs6/tXPJhJsue/ASKYtd9q7Oc"
+        listCredentialsSecret: "?sv=2019-10-10&ss=b&srt=c&sp=l&se=2099-06-09T18:11:50Z&st=2020-06-09T10:11:50Z&spr=https&sig=OVkYnD2M5uIIUg3THh61sMo2b54C8bA7L6triOeWsh4%3D"
+      }
+      id: 1
+    }
+  ) {
+    transcodingAcquisitionProfile {
+      uriPath
+      updatedUser
+      updatedDate
+      title
+      rootFolderPath
+      readCredentialsSecret
+      readCredentialsName
+      provider
+      nodeId
+      listCredentialsName
+      listCredentialsSecret
+      id
+      createdUser
+      createdDate
+    }
+  }
+  updateTranscodingPublishingProfile(
+    input: {
+      patch: {
+        uriPath: "https://navyplayground.blob.core.windows.net/transcoded/"
+        credentialsName: "navyplayground"
+        credentialsSecret: "g90PJ2sPWuTGxv4Hx1leSAp8f1qfeR+oCjJenCpDycL02SuBF2l+8yr5QMPiDInmA6+h/gGpo7Ewv8r2M7j7uBO2AQ0CPa/5rnsS0ng/g34U7kjmGIA9UMaKrxMh3IM8rikpny/DrY7qYVs745vkXJ+pft8U+qeGCBYi2UAJYamuVGF0RKAMReY05xHyvyTJwc3yNI6S2pp9q0BM3t4c416hbFN6UgM1eKbixmQ05+/7Zmu3JF0gma1Jo56v1ebPLbnfJOTvUW8ksMUAaKV3V5XM/y6/Bu/0PWs+AxiawVMzZvVf1aMT/edm/ki1iOswzQm+qq2qQxWEQPirR2hI6OMpZgWPFsIKJlbkAPfizDxp+kNecHes1fhTORjVze3ZhsEftr6bSpTJfAxqiGt5ZPm7WwTZUCtFtZXmka6X0M+o3jSoHCjqE2Y9QsdhkKzjlmvZ1fsVDlWl3PZksgAIdNxn+B85cN9PcEkcXkpPJR8C8ZsBjbn3uK2N+VfvM5wv"
+      }
+      id: 1
+    }
+  ) {
+    transcodingPublishingProfile {
+      uriPath
+      updatedUser
+      updatedDate
+      title
+      provider
+      nodeId
+      id
+      credentialsSecret
+      credentialsName
+      createdUser
+      createdDate
+    }
+  }
+}

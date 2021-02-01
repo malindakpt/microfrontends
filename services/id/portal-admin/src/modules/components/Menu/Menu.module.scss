@@ -1,0 +1,41 @@
+.container {
+  .tenantInfo {
+    height: 70px;
+    display: grid;
+    place-items: center end;
+    grid-template-columns: auto;
+
+    .tenantName {
+      cursor: pointer;
+      font-size: 13px;
+
+      img {
+        width: 18px;
+        margin: 0px 14px;
+      }
+    }
+  }
+  .expanded {
+    z-index: 10;
+    position: absolute;
+    right: 0px;
+    background: white;
+  }
+
+  .collapsed {
+    display: none;
+  }
+
+  .menuItem {
+    cursor: pointer;
+    height: 61px;
+    padding: 0px 20px;
+    display: grid;
+    place-items: center start;
+    border-top: 1px solid #bab8b8;
+
+    &:hover {
+      background-color: rgb(223, 223, 223);
+    }
+  }
+}

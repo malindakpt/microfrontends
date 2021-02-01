@@ -1,0 +1,9 @@
+mutation AuthenticateTenantAdmin($input: AuthenticateTenantAdminInput!) {
+  authenticateTenantAdmin(input: $input) {
+    accessToken
+    tenantAdminName
+    passwordChanged
+    tenantName
+    expiresIn
+  }
+}

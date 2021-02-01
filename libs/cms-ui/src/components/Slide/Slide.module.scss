@@ -1,0 +1,38 @@
+@import '../../variables.scss';
+
+body {
+  /* Global styles for route animations */
+  :global(.route-animations) {
+    transition: left 500ms ease-in;
+    position: absolute;
+    max-height: calc(100% - #{$header-height});
+    width: 100%;
+    left: 0px;
+    overflow-y: auto;
+  }
+  :global(.animate-forward-old-enter) {
+    left: 100vw;
+  }
+  :global(.animate-forward-old-enter-active) {
+    left: 0px;
+  }
+  :global(.animate-forward-old-exit) {
+    left: 0px;
+  }
+  :global(.animate-forward-old-exit-active) {
+    left: -100vw;
+  }
+
+  :global(.animate-backward-old-enter) {
+    left: -100vw;
+  }
+  :global(.animate-backward-old-enter-active) {
+    left: 0px;
+  }
+  :global(.animate-backward-old-exit) {
+    left: 0px;
+  }
+  :global(.animate-backward-old-exit-active) {
+    left: 100vw;
+  }
+}

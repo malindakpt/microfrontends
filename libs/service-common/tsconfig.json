@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.be.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    //TODO: Currently we don't remove comments to supply documentation for functions: https://github.com/microsoft/TypeScript/issues/14619
+    "removeComments": false,
+    "declaration": true
+  },
+  "exclude": ["node_modules", "dist", "scripts", "*/tests", "**/*spec.ts"]
+}

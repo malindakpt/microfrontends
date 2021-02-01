@@ -1,0 +1,30 @@
+@import '../../../../variables';
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 41px;
+  width: 100%;
+
+  background-color: var(
+    --explorer-create-button-color,
+    $explorer-create-button-color
+  );
+  cursor: pointer;
+
+  svg {
+    height: 30px;
+  }
+
+  &:hover {
+    background-color: var(
+      --explorer-create-button-color-hover,
+      $explorer-create-button-color-hover
+    );
+  }
+
+  path,
+  polygon {
+    fill: white;
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.fe.json",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "lib": ["es5", "es6", "es7", "es2017", "dom", "dom.iterable"],
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "plugins": [{ 
+      "name": "typescript-plugin-css-modules", 
+      "options": {
+        "customMatcher": "\\.scss",
+      }
+    }]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist"]
+}

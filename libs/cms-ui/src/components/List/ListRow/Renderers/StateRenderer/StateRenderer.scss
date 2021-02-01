@@ -1,0 +1,10 @@
+@import '../../../../../variables';
+
+.container {
+  height: 50px;
+  display: grid;
+  grid-template-columns: 13px;
+  grid-template-rows: 1fr;
+
+  place-items: center;
+}

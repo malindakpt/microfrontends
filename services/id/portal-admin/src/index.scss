@@ -1,0 +1,31 @@
+:root {
+  --input-label-color: #8c8b87;
+  --landingpage-title-color: #1b1464;
+  --landingpage-subtitle-color: #8c8b87;
+  --landingpage-largetile-background-color: rgba(89, 136, 166, 0.9);
+  --page-header-background-color: #005188;
+  --background: #eaeaea;
+  --filter-arrow-button-color: #1da9e1;
+  --explorer-action-button-color: #1da9e1;
+  --actions-background-color: #1da9e1;
+  --actions-hover-color: #95c842;
+  --landingpage-largetile-background-color: #1da9e1;
+  --landingpage-largetile-disabled-background-color: #8c8b87;
+  --filter-controller-background-color: #ebebeb;
+  --filter-background-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--background);
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

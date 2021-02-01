@@ -1,0 +1,13 @@
+query AllUserRoles {
+  userRoles {
+    nodes {
+      id
+      name
+      description
+      createdBy
+      createdAt
+      updatedBy
+      updatedAt
+    }
+  }
+}

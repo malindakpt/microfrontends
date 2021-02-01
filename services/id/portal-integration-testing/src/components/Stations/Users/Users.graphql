@@ -1,0 +1,27 @@
+query AllUsers {
+  users {
+    nodes {
+      id
+      name
+      email
+      status
+      profilePictureUrl
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation UpdateUser($updateUserInput: UpdateUserInput!) {
+  updateUser(input: $updateUserInput) {
+    user {
+      id
+      name
+      email
+      status
+      profilePictureUrl
+      createdAt
+      updatedAt
+    }
+  }
+}

@@ -1,0 +1,16 @@
+mutation CreateApplication($input: CreateApplicationInput!) {
+  createApplication(input: $input) {
+    application {
+      id
+      tenantId
+      name
+      allowedOrigins
+      interimAdministratorEmail
+      enabled
+      createdAt
+      createdBy
+      updatedAt
+      updatedBy
+    }
+  }
+}

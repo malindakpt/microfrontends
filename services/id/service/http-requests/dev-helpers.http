@@ -1,0 +1,78 @@
+@baseUrl = http://localhost:{{$dotenv ACCESS_MANAGEMENT_PORT}}/graphql
+
+# @name setupIdBasicData
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+mutation setupIdBasicData($input: SetupDevBasicDataInput!) {
+  _DEV_setupIdBasicData(input: $input) {
+    tenantId
+    applicationId
+  }
+}
+
+{
+  "input": {
+    "adminEmail": "{{$dotenv ADMIN_EMAIL}}",
+    "adminPassword": "{{$dotenv ADMIN_PASSWORD}}",
+    "googleClientId": "{{$dotenv GOOGLE_CLIENT_ID}}",
+    "googleClientSecret": "{{$dotenv GOOGLE_CLIENT_SECRET}}"
+  }
+}
+
+###
+
+# @name createServiceAccount
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+mutation createServiceAccount($input: CreateDevServiceAccountInput!) {
+  _DEV_createServiceAccount(input: $input) {
+    clientId
+    clientSecret
+    serviceAccountName
+    tenantId
+    applicationId
+  }
+}
+
+{
+  "input": {
+    "serviceAccountName": "Ingest Service Account"
+  }
+}
+
+###
+
+# @name generateUserAccessToken
+POST {{baseUrl}} HTTP/1.1
+X-Request-Type: GraphQL
+Content-Type: application/json
+
+mutation generateUserAccessToken($input: GenerateDevAccessTokenInput!) {
+  _DEV_generateUserAccessToken(input: $input) {
+    accessToken
+    expiresIn
+    tokenType
+  }
+}
+
+{
+  "input": {
+    "permissionStructure": [
+      {
+        "serviceId": "media-service",
+        "permissions": ["ADMIN", "MOVIE_EDITOR"]
+      },
+      {
+        "serviceId": "video-service",
+        "permissions": ["ADMIN", "VIDEO_EDITOR"]
+      }
+    ],
+    "tags": ["LK_MANAGER", "DE_MANAGER", "EE_MANAGER"]
+  }
+}
+
+###

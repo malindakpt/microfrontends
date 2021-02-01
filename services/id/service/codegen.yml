@@ -1,0 +1,17 @@
+overwrite: true
+schema: './src/generated/*.graphql'
+generates:
+  src/generated/graphql.types.ts:
+    documents: 'src/**/*.graphql' # Append ['./src/**/*.ts'] if inline gql tags need to be parsed
+    plugins:
+      - 'typescript' # Generates types for schema
+      - 'typescript-operations' # Generates return types for queries, mutations and input types for variables found in *.graphql documents
+      - 'typescript-urql' # Generates query/mutation document from gql tags
+    config:
+      withComponent: false # Disable react components generated from urql
+      namingConvention:
+        enumValues: keep # Use exact ENUM values found in graphql schema in typescript (uppercase snakecase)
+config:
+  scalars:
+    DateTime: 'string'
+    JSON: '{ [key: string]: any }'

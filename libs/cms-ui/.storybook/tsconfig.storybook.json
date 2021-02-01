@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.json",
+  "awesomeTypescriptLoaderOptions": {
+    "ignoreDiagnostics": [
+      // Otherwise the Storybook plugin storysource would fail compilation
+      7005
+    ]
+  },
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
+}

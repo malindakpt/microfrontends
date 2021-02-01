@@ -1,0 +1,5 @@
+query Applications {
+  applications {
+    totalCount
+  }
+}

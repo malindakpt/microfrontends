@@ -1,0 +1,45 @@
+{
+  "name": "@ax/id-link",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enables id-service integration for microservices built using the Navy engine",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": "",
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn clean && rollup -c",
+    "start:dev": "rollup -c -w",
+    "test": "jest --silent",
+    "lint": "tsc --noEmit && eslint . --ext .js,.ts --fix",
+    "lint:warn": "tsc --noEmit && eslint . --ext .js,.ts --fix",
+    "lint:CI": "tsc --noEmit && eslint . --ext .js,.ts --quiet"
+  },
+  "keywords": [],
+  "author": "Axinom",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@ax/id-link-utils": "^1.0.0",
+    "clsx": "^1.1.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^1.31.0",
+    "ts-node": "^8.9.0",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2"
+  }
+}

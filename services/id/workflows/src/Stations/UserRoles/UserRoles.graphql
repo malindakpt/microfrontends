@@ -1,0 +1,15 @@
+query UserRoles($filter: UserRoleFilter) {
+  filtered: userRoles(filter: $filter) {
+    totalCount
+    nodes {
+      id
+      name
+      description
+      createdAt
+      updatedAt
+    }
+  }
+  nonFiltered: userRoles {
+    totalCount
+  }
+}

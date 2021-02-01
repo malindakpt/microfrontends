@@ -1,0 +1,18 @@
+@import '../../../../variables.scss';
+
+.container {
+  margin: 0px 3px;
+
+  .option {
+    cursor: pointer;
+    display: grid;
+    place-items: center left;
+    background-color: var(
+      --filter-option-background-color,
+      $filter-option-background-color
+    );
+    margin-bottom: 1px;
+    height: 30px;
+    padding: 3px 28px;
+  }
+}

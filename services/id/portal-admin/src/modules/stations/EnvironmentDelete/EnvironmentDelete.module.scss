@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  margin: auto;
+  padding: 100px;
+  place-items: center;
+  grid-gap: 50px;
+
+  .buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+
+    input {
+      cursor: pointer;
+      margin: 23px auto 45px auto;
+      height: 40px;
+      background: var(--explorer-action-button-color);
+      color: white;
+      font-size: 20px;
+      border: none;
+      padding: 0px 10px;
+      width: 100px;
+    }
+  }
+}

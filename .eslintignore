@@ -1,0 +1,9 @@
+**/node_modules/**
+services/*/dist/**
+libs/*/dist/**
+coverage
+**/coverage/**
+services/*/migrations/**
+storybook-static
+generated
+legacy

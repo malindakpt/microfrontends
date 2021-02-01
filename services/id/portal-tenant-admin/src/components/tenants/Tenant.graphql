@@ -1,0 +1,42 @@
+query AllTenants {
+  tenants {
+    nodes {
+      id
+      name
+      status
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation CreateTenant($dto: CreateTenantInput!) {
+  createTenant(input: $dto) {
+    tenant {
+      id
+      name
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation DeleteTenant($dto: DeleteTenantInput!) {
+  deleteTenant(input: $dto) {
+    tenant {
+      id
+    }
+  }
+}
+
+mutation UpdateTenant($dto: UpdateTenantInput!) {
+  updateTenant(input: $dto) {
+    tenant {
+      id
+      name
+      status
+      createdAt
+      updatedAt
+    }
+  }
+}

@@ -1,0 +1,31 @@
+query Tag($id: UUID!) {
+  tag(id: $id) {
+    id
+    name
+    description
+    tenantId
+    applicationId
+    createdAt
+    createdBy
+    updatedAt
+    updatedBy
+  }
+}
+
+mutation UpdateTag($input: UpdateTagInput!) {
+  updateTag(input: $input) {
+    clientMutationId
+    tag {
+      name
+      description
+      updatedAt
+      updatedBy
+    }
+  }
+}
+
+mutation DeleteTag($input: DeleteTagInput!) {
+  deleteTag(input: $input) {
+    clientMutationId
+  }
+}

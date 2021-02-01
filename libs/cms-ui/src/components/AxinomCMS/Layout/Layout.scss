@@ -1,0 +1,10 @@
+@import '../../../variables.scss';
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr;
+  background: var(--background, $background);
+  background-size: cover;
+}

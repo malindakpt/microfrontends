@@ -1,0 +1,20 @@
+@import '../../../../variables.scss';
+
+.container {
+  background: var(
+    --filter-option-background-color,
+    $filter-option-background-color
+  );
+  padding: 5px;
+  margin: 0 3px 3px 3px;
+
+  .inputValue {
+    border: var(
+      --filter-option-background-color,
+      $filter-option-background-color
+    );
+    height: 30px;
+    width: calc(100% - 10px);
+    padding: 0px 5px;
+  }
+}

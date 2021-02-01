@@ -1,0 +1,42 @@
+body {
+  /* Global styles for route animations */
+  :global(.animate-forward-enter),
+  :global(.animate-forward-exit),
+  :global(.animate-backward-enter),
+  :global(.animate-backward-exit) {
+    transition: transform 500ms ease-in;
+    position: absolute;
+    width: 100%;
+    top: 70px; // TODO: This is the header height. Use a variable to maintain consistency.
+    box-sizing: border-box;
+  }
+  :global(.animate-forward-enter) {
+    transform: translateX(100%);
+  }
+  :global(.animate-forward-enter-active) {
+    transform: translateX(0%);
+  }
+  :global(.animate-forward-exit) {
+    left: 0;
+    transform: translateX(0%);
+  }
+  :global(.animate-forward-exit-active) {
+    transform: translateX(-100%);
+  }
+  :global(.animate-backward-enter) {
+    transform: translateX(-100%);
+  }
+  :global(.animate-backward-enter-active) {
+    transform: translateX(0%);
+  }
+  :global(.animate-backward-exit) {
+    left: 0;
+    transform: translateX(0%);
+  }
+  :global(.animate-backward-exit-active) {
+    transform: translateX(100%);
+  }
+  :global(.animate-none-exit) {
+    display: none;
+  }
+}

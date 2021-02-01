@@ -1,0 +1,7 @@
+{
+  "extends": "../../../tsconfig.be.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "exclude": ["node_modules", "dist", "scripts", "*/tests", "**/*spec.ts"]
+}

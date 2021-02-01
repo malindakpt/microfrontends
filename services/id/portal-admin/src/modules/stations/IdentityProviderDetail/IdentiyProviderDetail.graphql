@@ -1,0 +1,51 @@
+query IdpConfigurations(
+  $idpConfigurationCondition: IdpConfigurationCondition
+  $idpScopeFilter: IdpScopeFilter
+) {
+  configurations: idpConfigurations(condition: $idpConfigurationCondition) {
+    nodes {
+      id
+      discoveryDocumentUrl
+      clientId
+      clientSecret
+      scopes
+      enabled
+      createdAt
+      createdBy
+      updatedAt
+      updatedBy
+    }
+  }
+  scopes: idpScopes(filter: $idpScopeFilter) {
+    nodes {
+      scopeName
+      required
+    }
+  }
+}
+
+mutation CreateIdpConfiguration($input: CreateIdpConfigurationInput!) {
+  createIdpConfiguration(input: $input) {
+    clientMutationId
+  }
+}
+
+mutation updateIdpConfiguration($input: UpdateIdpConfigurationInput!) {
+  updateIdpConfiguration(input: $input) {
+    idpConfiguration {
+      discoveryDocumentUrl
+      clientId
+      clientSecret
+      scopes
+      enabled
+      updatedAt
+      updatedBy
+    }
+  }
+}
+
+mutation DeleteIdpConfiguration($input: DeleteIdpConfigurationInput!) {
+  deleteIdpConfiguration(input: $input) {
+    clientMutationId
+  }
+}

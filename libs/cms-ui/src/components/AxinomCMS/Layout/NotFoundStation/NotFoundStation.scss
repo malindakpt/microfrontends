@@ -1,0 +1,16 @@
+@import '../../../../variables.scss';
+
+.container {
+  color: var(--primary-text-color, $primary-text-color);
+  font-size: 2rem;
+  align-content: center;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--primary-text-color, $primary-text-color);
+  border: 1px solid var(--primary-text-color, $primary-text-color);
+  justify-self: center;
+  padding: 7px;
+}

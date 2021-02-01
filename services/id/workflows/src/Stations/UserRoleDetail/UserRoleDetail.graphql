@@ -1,0 +1,33 @@
+query UserRole($id: UUID!) {
+  userRole(id: $id) {
+    id
+    name
+    description
+    tenantId
+    applicationId
+    createdAt
+    createdBy
+    updatedAt
+    updatedBy
+    userRoleTagAssignments {
+      nodes {
+        id
+        tag {
+          name
+        }
+      }
+    }
+  }
+  tags {
+    nodes {
+      id
+      name
+    }
+  }
+}
+
+mutation DeleteUserRole($input: DeleteUserRoleInput!) {
+  deleteUserRole(input: $input) {
+    clientMutationId
+  }
+}

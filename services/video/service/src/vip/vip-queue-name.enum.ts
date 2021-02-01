@@ -1,0 +1,15 @@
+export enum VipQueueName {
+  JobCreated = 'JobCreatedQueue',
+  AcquisitionProgress = 'AcquisitionProgressQueue',
+  ContentAcquired = 'ContentAcquiredQueue',
+  ContentMapped = 'ContentMappedQueue',
+  ContentPreProcessed = 'ContentPreProcessedQueue',
+  VideoEncodingStarted = 'VideoEncodingStartedQueue',
+  EncodingProgress = 'EncodingProgressQueue',
+  ContentPublished = 'ContentPublishedQueue',
+  EncodingFinished = 'EncodingFinishedQueue',
+  JobSuccess = 'JobSuccessQueue',
+  FinalError = 'FinalErrorQueue',
+  ImagesExtracted = 'ImagesExtractedQueue',
+  ImagesExtractionFailure = 'ImagesExtractionFailureQueue',
+}

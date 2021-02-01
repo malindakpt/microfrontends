@@ -1,0 +1,6 @@
+mutation SyncPermissions($input: SynchronizePermissionsInput!) {
+  synchronizePermissions(input: $input) {
+    added
+    removed
+  }
+}

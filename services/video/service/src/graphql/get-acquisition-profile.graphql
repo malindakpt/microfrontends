@@ -1,0 +1,9 @@
+query GetAcquisitionProfile {
+  transcodingAcquisitionProfiles(first: 1) {
+    nodes {
+      uriPath
+      rootFolderPath
+      listCredentialsSecret
+    }
+  }
+}

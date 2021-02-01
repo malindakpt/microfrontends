@@ -1,0 +1,1042 @@
+input AuthenticateSuperUserInput {
+  email: String!
+  password: String!
+}
+
+type AuthenticateSuperUserPayload {
+  """Access Token containing permissions of the Super User"""
+  accessToken: String!
+
+  """Access Token type to use when making client requests"""
+  tokenType: String!
+
+  """Access Token expiration timeout"""
+  expiresIn: Int!
+}
+
+"""
+A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’
+"""
+input BooleanFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Boolean
+
+  """Not equal to the specified value."""
+  notEqualTo: Boolean
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Boolean
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Boolean
+
+  """Included in the specified list."""
+  in: [Boolean!]
+
+  """Not included in the specified list."""
+  notIn: [Boolean!]
+
+  """Less than the specified value."""
+  lessThan: Boolean
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Boolean
+
+  """Greater than the specified value."""
+  greaterThan: Boolean
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Boolean
+}
+
+"""All input for the create `TenantAdmin` mutation."""
+input CreateTenantAdminInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `TenantAdmin` to be created by this mutation."""
+  tenantAdmin: TenantAdminInput!
+}
+
+"""The output of our create `TenantAdmin` mutation."""
+type CreateTenantAdminPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TenantAdmin` that was created by this mutation."""
+  tenantAdmin: TenantAdmin
+
+  """Reads a single `Tenant` that is related to this `TenantAdmin`."""
+  tenant: Tenant
+
+  """An edge for our `TenantAdmin`. May be used by Relay 1."""
+  tenantAdminEdge(
+    """The method to use when ordering `TenantAdmin`."""
+    orderBy: [TenantAdminsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TenantAdminsEdge
+}
+
+"""All input for the create `Tenant` mutation."""
+input CreateTenantInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Tenant` to be created by this mutation."""
+  tenant: TenantInput!
+}
+
+"""The output of our create `Tenant` mutation."""
+type CreateTenantPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Tenant` that was created by this mutation."""
+  tenant: Tenant
+
+  """An edge for our `Tenant`. May be used by Relay 1."""
+  tenantEdge(
+    """The method to use when ordering `Tenant`."""
+    orderBy: [TenantsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TenantsEdge
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+"""
+A point in time as described by the [ISO
+8601](https://en.wikipedia.org/wiki/ISO_8601) standard. May or may not include a timezone.
+"""
+scalar Datetime
+
+"""
+A filter to be used against Datetime fields. All fields are combined with a logical ‘and.’
+"""
+input DatetimeFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Datetime
+
+  """Not equal to the specified value."""
+  notEqualTo: Datetime
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Datetime
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Datetime
+
+  """Included in the specified list."""
+  in: [Datetime!]
+
+  """Not included in the specified list."""
+  notIn: [Datetime!]
+
+  """Less than the specified value."""
+  lessThan: Datetime
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Datetime
+
+  """Greater than the specified value."""
+  greaterThan: Datetime
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Datetime
+}
+
+"""All input for the `deleteTenantAdmin` mutation."""
+input DeleteTenantAdminInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `TenantAdmin` mutation."""
+type DeleteTenantAdminPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TenantAdmin` that was deleted by this mutation."""
+  tenantAdmin: TenantAdmin
+  deletedTenantAdminNodeId: ID
+
+  """Reads a single `Tenant` that is related to this `TenantAdmin`."""
+  tenant: Tenant
+
+  """An edge for our `TenantAdmin`. May be used by Relay 1."""
+  tenantAdminEdge(
+    """The method to use when ordering `TenantAdmin`."""
+    orderBy: [TenantAdminsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TenantAdminsEdge
+}
+
+"""All input for the `deleteTenant` mutation."""
+input DeleteTenantInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  id: UUID!
+}
+
+"""The output of our delete `Tenant` mutation."""
+type DeleteTenantPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Tenant` that was deleted by this mutation."""
+  tenant: Tenant
+  deletedTenantNodeId: ID
+
+  """An edge for our `Tenant`. May be used by Relay 1."""
+  tenantEdge(
+    """The method to use when ordering `Tenant`."""
+    orderBy: [TenantsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TenantsEdge
+}
+
+input GenerateTenantAdminPasswordInput {
+  id: String!
+}
+
+type GenerateTenantAdminPasswordPayload {
+  tenantAdmin: TenantAdmin
+
+  """Generated password."""
+  password: String!
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  """Creates a single `Tenant`."""
+  createTenant(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateTenantInput!
+  ): CreateTenantPayload
+
+  """Creates a single `TenantAdmin`."""
+  createTenantAdmin(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateTenantAdminInput!
+  ): CreateTenantAdminPayload
+
+  """Updates a single `Tenant` using a unique key and a patch."""
+  updateTenant(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTenantInput!
+  ): UpdateTenantPayload
+
+  """Updates a single `TenantAdmin` using a unique key and a patch."""
+  updateTenantAdmin(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateTenantAdminInput!
+  ): UpdateTenantAdminPayload
+
+  """Deletes a single `Tenant` using a unique key."""
+  deleteTenant(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteTenantInput!
+  ): DeleteTenantPayload
+
+  """Deletes a single `TenantAdmin` using a unique key."""
+  deleteTenantAdmin(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteTenantAdminInput!
+  ): DeleteTenantAdminPayload
+
+  """Authenticates a Identity Service Super User"""
+  authenticateSuperUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: AuthenticateSuperUserInput
+  ): AuthenticateSuperUserPayload!
+
+  """Generates a new password for a `TenantAdmin`."""
+  generateTenantAdminPassword(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: GenerateTenantAdminPasswordInput!
+  ): GenerateTenantAdminPasswordPayload
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+}
+
+"""The root query type which gives access points into the data universe."""
+type Query {
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+
+  """Reads and enables pagination through a set of `Tenant`."""
+  tenants(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Tenant`."""
+    orderBy: [TenantsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TenantCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TenantFilter
+  ): TenantsConnection
+
+  """Reads and enables pagination through a set of `TenantAdmin`."""
+  tenantAdmins(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TenantAdmin`."""
+    orderBy: [TenantAdminsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TenantAdminCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TenantAdminFilter
+  ): TenantAdminsConnection
+  tenant(id: UUID!): Tenant
+  tenantAdmin(id: UUID!): TenantAdmin
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: String
+
+  """Not equal to the specified value."""
+  notEqualTo: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: String
+
+  """Included in the specified list."""
+  in: [String!]
+
+  """Not included in the specified list."""
+  notIn: [String!]
+
+  """Less than the specified value."""
+  lessThan: String
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: String
+
+  """Greater than the specified value."""
+  greaterThan: String
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: String
+
+  """Contains the specified string (case-sensitive)."""
+  includes: String
+
+  """Does not contain the specified string (case-sensitive)."""
+  notIncludes: String
+
+  """Contains the specified string (case-insensitive)."""
+  includesInsensitive: String
+
+  """Does not contain the specified string (case-insensitive)."""
+  notIncludesInsensitive: String
+
+  """Starts with the specified string (case-sensitive)."""
+  startsWith: String
+
+  """Does not start with the specified string (case-sensitive)."""
+  notStartsWith: String
+
+  """Starts with the specified string (case-insensitive)."""
+  startsWithInsensitive: String
+
+  """Does not start with the specified string (case-insensitive)."""
+  notStartsWithInsensitive: String
+
+  """Ends with the specified string (case-sensitive)."""
+  endsWith: String
+
+  """Does not end with the specified string (case-sensitive)."""
+  notEndsWith: String
+
+  """Ends with the specified string (case-insensitive)."""
+  endsWithInsensitive: String
+
+  """Does not end with the specified string (case-insensitive)."""
+  notEndsWithInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any
+  single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_)
+  matches any single character; a percent sign (%) matches any sequence of zero
+  or more characters.
+  """
+  notLike: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches
+  any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_)
+  matches any single character; a percent sign (%) matches any sequence of zero
+  or more characters.
+  """
+  notLikeInsensitive: String
+
+  """
+  Matches the specified pattern using the SQL standard's definition of a regular expression.
+  """
+  similarTo: String
+
+  """
+  Does not match the specified pattern using the SQL standard's definition of a regular expression.
+  """
+  notSimilarTo: String
+}
+
+type Tenant {
+  id: UUID!
+  name: String!
+  status: TenantStatus!
+  createdAt: Datetime!
+  createdBy: String!
+  updatedAt: Datetime!
+  updatedBy: String!
+
+  """Reads and enables pagination through a set of `TenantAdmin`."""
+  tenantAdmins(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `TenantAdmin`."""
+    orderBy: [TenantAdminsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: TenantAdminCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: TenantAdminFilter
+  ): TenantAdminsConnection!
+}
+
+type TenantAdmin {
+  id: UUID!
+  name: String!
+  email: String!
+  active: Boolean!
+  passwordChanged: Boolean!
+  tenantId: UUID!
+  createdAt: Datetime!
+  createdBy: String!
+  updatedAt: Datetime!
+  updatedBy: String!
+
+  """Reads a single `Tenant` that is related to this `TenantAdmin`."""
+  tenant: Tenant
+}
+
+"""
+A condition to be used against `TenantAdmin` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input TenantAdminCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `email` field."""
+  email: String
+
+  """Checks for equality with the object’s `active` field."""
+  active: Boolean
+
+  """Checks for equality with the object’s `passwordChanged` field."""
+  passwordChanged: Boolean
+
+  """Checks for equality with the object’s `tenantId` field."""
+  tenantId: UUID
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `createdBy` field."""
+  createdBy: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `updatedBy` field."""
+  updatedBy: String
+}
+
+"""
+A filter to be used against `TenantAdmin` object types. All fields are combined with a logical ‘and.’
+"""
+input TenantAdminFilter {
+  """Filter by the object’s `id` field."""
+  id: UUIDFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `email` field."""
+  email: StringFilter
+
+  """Filter by the object’s `active` field."""
+  active: BooleanFilter
+
+  """Filter by the object’s `passwordChanged` field."""
+  passwordChanged: BooleanFilter
+
+  """Filter by the object’s `tenantId` field."""
+  tenantId: UUIDFilter
+
+  """Filter by the object’s `createdAt` field."""
+  createdAt: DatetimeFilter
+
+  """Filter by the object’s `createdBy` field."""
+  createdBy: StringFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `updatedBy` field."""
+  updatedBy: StringFilter
+
+  """Filter by the object’s `tenant` relation."""
+  tenant: TenantFilter
+
+  """Checks for all expressions in this list."""
+  and: [TenantAdminFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [TenantAdminFilter!]
+
+  """Negates the expression."""
+  not: TenantAdminFilter
+}
+
+"""An input for mutations affecting `TenantAdmin`"""
+input TenantAdminInput {
+  name: String!
+  email: String!
+  tenantId: UUID!
+}
+
+"""
+Represents an update to a `TenantAdmin`. Fields that are set will be updated.
+"""
+input TenantAdminPatch {
+  name: String
+  email: String
+  active: Boolean
+}
+
+"""A connection to a list of `TenantAdmin` values."""
+type TenantAdminsConnection {
+  """A list of `TenantAdmin` objects."""
+  nodes: [TenantAdmin]!
+
+  """
+  A list of edges which contains the `TenantAdmin` and cursor to aid in pagination.
+  """
+  edges: [TenantAdminsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `TenantAdmin` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `TenantAdmin` edge in the connection."""
+type TenantAdminsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `TenantAdmin` at the end of the edge."""
+  node: TenantAdmin
+}
+
+"""Methods to use when ordering `TenantAdmin`."""
+enum TenantAdminsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  EMAIL_ASC
+  EMAIL_DESC
+  ACTIVE_ASC
+  ACTIVE_DESC
+  PASSWORD_CHANGED_ASC
+  PASSWORD_CHANGED_DESC
+  TENANT_ID_ASC
+  TENANT_ID_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  CREATED_BY_ASC
+  CREATED_BY_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  UPDATED_BY_ASC
+  UPDATED_BY_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Tenant` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input TenantCondition {
+  """Checks for equality with the object’s `id` field."""
+  id: UUID
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `status` field."""
+  status: TenantStatus
+
+  """Checks for equality with the object’s `createdAt` field."""
+  createdAt: Datetime
+
+  """Checks for equality with the object’s `createdBy` field."""
+  createdBy: String
+
+  """Checks for equality with the object’s `updatedAt` field."""
+  updatedAt: Datetime
+
+  """Checks for equality with the object’s `updatedBy` field."""
+  updatedBy: String
+}
+
+"""
+A filter to be used against `Tenant` object types. All fields are combined with a logical ‘and.’
+"""
+input TenantFilter {
+  """Filter by the object’s `id` field."""
+  id: UUIDFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `status` field."""
+  status: TenantStatusFilter
+
+  """Filter by the object’s `createdAt` field."""
+  createdAt: DatetimeFilter
+
+  """Filter by the object’s `createdBy` field."""
+  createdBy: StringFilter
+
+  """Filter by the object’s `updatedAt` field."""
+  updatedAt: DatetimeFilter
+
+  """Filter by the object’s `updatedBy` field."""
+  updatedBy: StringFilter
+
+  """Filter by the object’s `tenantAdmins` relation."""
+  tenantAdmins: TenantToManyTenantAdminFilter
+
+  """Some related `tenantAdmins` exist."""
+  tenantAdminsExist: Boolean
+
+  """Checks for all expressions in this list."""
+  and: [TenantFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [TenantFilter!]
+
+  """Negates the expression."""
+  not: TenantFilter
+}
+
+"""An input for mutations affecting `Tenant`"""
+input TenantInput {
+  name: String!
+}
+
+"""
+Represents an update to a `Tenant`. Fields that are set will be updated.
+"""
+input TenantPatch {
+  name: String
+  status: TenantStatus
+}
+
+"""A connection to a list of `Tenant` values."""
+type TenantsConnection {
+  """A list of `Tenant` objects."""
+  nodes: [Tenant]!
+
+  """
+  A list of edges which contains the `Tenant` and cursor to aid in pagination.
+  """
+  edges: [TenantsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Tenant` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Tenant` edge in the connection."""
+type TenantsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Tenant` at the end of the edge."""
+  node: Tenant
+}
+
+"""Methods to use when ordering `Tenant`."""
+enum TenantsOrderBy {
+  NATURAL
+  ID_ASC
+  ID_DESC
+  NAME_ASC
+  NAME_DESC
+  STATUS_ASC
+  STATUS_DESC
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  CREATED_BY_ASC
+  CREATED_BY_DESC
+  UPDATED_AT_ASC
+  UPDATED_AT_DESC
+  UPDATED_BY_ASC
+  UPDATED_BY_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+enum TenantStatus {
+  ENABLED
+  DISABLED
+}
+
+"""
+A filter to be used against TenantStatus fields. All fields are combined with a logical ‘and.’
+"""
+input TenantStatusFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: TenantStatus
+
+  """Not equal to the specified value."""
+  notEqualTo: TenantStatus
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: TenantStatus
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: TenantStatus
+
+  """Included in the specified list."""
+  in: [TenantStatus!]
+
+  """Not included in the specified list."""
+  notIn: [TenantStatus!]
+
+  """Less than the specified value."""
+  lessThan: TenantStatus
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: TenantStatus
+
+  """Greater than the specified value."""
+  greaterThan: TenantStatus
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: TenantStatus
+}
+
+"""
+A filter to be used against many `TenantAdmin` object types. All fields are combined with a logical ‘and.’
+"""
+input TenantToManyTenantAdminFilter {
+  """
+  Every related `TenantAdmin` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  every: TenantAdminFilter
+
+  """
+  Some related `TenantAdmin` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  some: TenantAdminFilter
+
+  """
+  No related `TenantAdmin` matches the filter criteria. All fields are combined with a logical ‘and.’
+  """
+  none: TenantAdminFilter
+}
+
+"""All input for the `updateTenantAdmin` mutation."""
+input UpdateTenantAdminInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `TenantAdmin` being updated.
+  """
+  patch: TenantAdminPatch!
+  id: UUID!
+}
+
+"""The output of our update `TenantAdmin` mutation."""
+type UpdateTenantAdminPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `TenantAdmin` that was updated by this mutation."""
+  tenantAdmin: TenantAdmin
+
+  """Reads a single `Tenant` that is related to this `TenantAdmin`."""
+  tenant: Tenant
+
+  """An edge for our `TenantAdmin`. May be used by Relay 1."""
+  tenantAdminEdge(
+    """The method to use when ordering `TenantAdmin`."""
+    orderBy: [TenantAdminsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TenantAdminsEdge
+}
+
+"""All input for the `updateTenant` mutation."""
+input UpdateTenantInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Tenant` being updated.
+  """
+  patch: TenantPatch!
+  id: UUID!
+}
+
+"""The output of our update `Tenant` mutation."""
+type UpdateTenantPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Tenant` that was updated by this mutation."""
+  tenant: Tenant
+
+  """An edge for our `Tenant`. May be used by Relay 1."""
+  tenantEdge(
+    """The method to use when ordering `Tenant`."""
+    orderBy: [TenantsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): TenantsEdge
+}
+
+"""
+A universally unique identifier as defined by [RFC 4122](https://tools.ietf.org/html/rfc4122).
+"""
+scalar UUID
+
+"""
+A filter to be used against UUID fields. All fields are combined with a logical ‘and.’
+"""
+input UUIDFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: UUID
+
+  """Not equal to the specified value."""
+  notEqualTo: UUID
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: UUID
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: UUID
+
+  """Included in the specified list."""
+  in: [UUID!]
+
+  """Not included in the specified list."""
+  notIn: [UUID!]
+
+  """Less than the specified value."""
+  lessThan: UUID
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: UUID
+
+  """Greater than the specified value."""
+  greaterThan: UUID
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: UUID
+}

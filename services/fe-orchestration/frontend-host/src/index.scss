@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i&display=swap');
+
+:root {
+  --input-label-color: #8c8b87;
+  --landingpage-title-color: #1b1464;
+  --landingpage-subtitle-color: #8c8b87;
+  --landingpage-largetile-background-color: rgba(89, 136, 166, 0.9);
+  --page-header-background-color: #005188;
+  --background: #eaeaea;
+  --explorer-action-button-color: #1da9e1;
+  --actions-background-color: #1da9e1;
+  --landingpage-largetile-background-color: #1da9e1;
+  --landingpage-largetile-disabled-background-color: #8c8b87;
+  --actions-hover-color: #95c842;
+  --filter-controller-background-color: #ebebeb;
+  --filter-background-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  > div {
+    height: 100vh;
+  }
+}

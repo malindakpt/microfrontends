@@ -1,0 +1,117 @@
+.container {
+  display: grid;
+  height: 100%;
+
+  .wrapper {
+    display: grid;
+    margin: auto;
+    width: 520px;
+    justify-content: center;
+    grid-template-columns: 80%;
+    color: grey;
+
+    .logo {
+      display: grid;
+      place-content: center;
+      margin-bottom: 30px;
+    }
+
+    .box {
+      display: grid;
+      background: white;
+      justify-content: center;
+      grid-template-columns: 80%;
+
+      .login {
+        margin-top: 20px;
+        font-size: 35px;
+      }
+      .subText {
+        margin: 10px 0px;
+        font-size: 12px;
+      }
+
+      input {
+        border: none;
+        border-bottom: 1px solid;
+        padding: 10px 12px;
+        display: inline-block;
+        font-size: 16px;
+        outline: none;
+        margin-bottom: 18px;
+      }
+
+      .suggestions {
+        color: black;
+        width: 100%;
+        max-height: 120px;
+        overflow-y: auto;
+
+        .tenant {
+          width: calc(100% - 10px);
+          padding: 3px;
+          cursor: pointer;
+          margin: 2px;
+          background-color: #1b146417;
+
+          &:hover {
+            background-color: rgb(235, 235, 235);
+          }
+
+          .id {
+            font-size: 12px;
+            padding-left: 10px;
+          }
+
+          .name {
+            padding-left: 5px;
+          }
+
+          .clear {
+            font-size: 12px;
+            float: right;
+            padding: 5px;
+            width: 50px;
+            text-align: right;
+          }
+        }
+      }
+
+      span {
+        color: red;
+        font-size: 12px;
+      }
+
+      .submit {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        cursor: pointer;
+        margin: 23px auto 45px auto;
+        height: 31px;
+        background: var(--explorer-action-button-color);
+        color: white;
+        font-size: 20px;
+        text-align: left;
+        padding: 10px;
+        border: none;
+
+        &.disabled {
+          background-color: grey;
+        }
+
+        .text {
+          display: grid;
+          place-content: center start;
+        }
+
+        .icon {
+          display: grid;
+          place-content: center end;
+          img {
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+}

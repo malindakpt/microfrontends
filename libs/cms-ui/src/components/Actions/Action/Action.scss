@@ -1,0 +1,43 @@
+@import '../../../variables';
+
+.container {
+  height: 50px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 40px;
+
+  border-bottom: 1px solid var(--actions-border-color, $actions-border-color);
+  user-select: none;
+
+  span {
+    padding-left: 20px;
+
+    font-size: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &:hover {
+    background-color: var(--actions-hover-color, $actions-hover-color);
+    transition: background-color 100ms linear;
+    cursor: pointer;
+
+    &.confirm {
+      background-color: var(
+        --actions-confirmation-color,
+        $actions-confirmation-color
+      );
+    }
+  }
+
+  svg {
+    height: 20px;
+    justify-self: end;
+    padding-right: 20px;
+
+    polygon {
+      fill: #ffffff;
+    }
+  }
+}

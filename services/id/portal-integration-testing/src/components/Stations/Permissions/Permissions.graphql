@@ -1,0 +1,12 @@
+query AllPermissions {
+  permissions {
+    nodes {
+      id
+      serviceId
+      name
+      fromManagedService
+      createdAt
+      updatedAt
+    }
+  }
+}

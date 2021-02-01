@@ -1,0 +1,32 @@
+query User($id: UUID!) {
+  user(id: $id) {
+    id
+    name
+    email
+    status
+    tenantId
+    applicationId
+    createdAt
+    createdBy
+    updatedAt
+    updatedBy
+  }
+}
+
+mutation UpdateUser($input: UpdateUserInput!) {
+  updateUser(input: $input) {
+    clientMutationId
+    user {
+      name
+      status
+      updatedAt
+      updatedBy
+    }
+  }
+}
+
+mutation DeleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
+    clientMutationId
+  }
+}

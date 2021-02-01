@@ -1,0 +1,49 @@
+{
+  "name": "@ax/service-common",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Common helpers and PostgreSQL-related functionality.",
+  "main": "./dist/index.js",
+  "repository": "",
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn clean && tsc",
+    "start:dev": "tsc -w",
+    "publish:latest": "npm run build && npm publish",
+    "test": "jest --silent",
+    "test:watch": "jest --watch --silent",
+    "test:cov": "jest --coverage --silent",
+    "posttest:cov": "ts-node ../../scripts/open-coverage.command.ts -- libs/service-common",
+    "test:debug": "node --inspect-brk -r ts-node/register ../../node_modules/jest/bin/jest.js --runInBand --silent"
+  },
+  "keywords": [
+    "ax",
+    "axinom",
+    "postgraphile",
+    "common",
+    "be",
+    "backend"
+  ],
+  "author": "Axinom",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.17.1",
+    "graphile-build": "^4.5.0",
+    "graphile-build-pg": "^4.5.3",
+    "graphile-migrate": "^0.3.1",
+    "graphile-utils": "^4.5.6",
+    "inflection": "^1.12.0",
+    "pg": "^8.0.2",
+    "postgraphile": "^4.6.0",
+    "readdirp": "^3.4.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.9.0"
+  }
+}

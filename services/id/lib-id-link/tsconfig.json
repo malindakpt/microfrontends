@@ -1,0 +1,18 @@
+{
+  "extends": "../../../tsconfig.fe.json",
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "lib": ["es5", "es6", "es7", "es2017", "dom", "dom.iterable"],
+    "baseUrl": "src",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules"]
+}

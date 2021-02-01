@@ -1,0 +1,24 @@
+@import '../../../../variables';
+
+.ActionButton {
+  display: grid;
+  place-items: center;
+  height: 51px;
+  width: 51px;
+  background-color: var(
+    --explorer-action-button-color,
+    $explorer-action-button-color
+  );
+
+  &:hover {
+    background-color: var(
+      --explorer-action-button-color-hover,
+      $explorer-action-button-color-hover
+    );
+  }
+
+  img {
+    height: 38%;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,281 @@
+@import '../../../variables.scss';
+
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr;
+
+  .homeButton {
+    display: grid;
+    place-items: center;
+
+    svg {
+      height: 35px;
+      padding-left: 10px;
+
+      polygon,
+      path {
+        fill: var(--header-homebutton-color, $header-homebutton-color);
+      }
+    }
+  }
+
+  a,
+  div.dropDownAnchor {
+    display: grid;
+    grid-template-columns: 150px 20px;
+    grid-template-rows: 1fr;
+    align-items: center;
+
+    background-color: var(
+      --breadcrumbs-background-color,
+      $breadcrumbs-background-color
+    );
+
+    color: var(--breadcrumbs-text-color, $breadcrumbs-text-color);
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+
+    // smaller home button
+    &.homeLink {
+      grid-template-columns: 70px 20px;
+    }
+
+    // move all crumbs, except home button, under the arrow and offset label
+    &:not(.homeLink) {
+      margin-left: -20px;
+      padding-left: 30px;
+
+      text-align: center;
+    }
+
+    span.crumbLabel {
+      // ellipsis for label overflow
+      p {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        z-index: 4;
+      }
+
+      .toolTip {
+        position: absolute;
+        padding: 1px 5px;
+        z-index: 3;
+
+        background-color: var(
+          --breadcrumbs-tooltip-background-color,
+          $breadcrumbs-tooltip-background-color
+        );
+      }
+    }
+
+    // drop down
+    &.dropDownAnchor {
+      grid-template-columns: 50px 20px;
+      grid-template-rows: 1fr;
+      padding-left: 20px;
+
+      overflow: inherit; // allows dropdown list to be shown outside breadcrumbs
+      background-color: var(
+        --breadcrumbs-anchor-background-color,
+        $breadcrumbs-anchor-background-color
+      );
+
+      cursor: pointer;
+
+      span:not(.toolTip) {
+        height: 100%;
+        display: grid;
+        align-items: center;
+        position: relative; // is set here as this property causes issues with z-index and breadcrumbs arrows if set on parent
+
+        .ellipsisLabel {
+          font-size: 18px;
+        }
+
+        .dropDownList {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-auto-rows: 60px;
+          width: 360px;
+          border-top: 2px solid white;
+
+          position: absolute;
+          top: $header-height;
+          left: 0px;
+
+          background-color: white;
+
+          z-index: 2;
+
+          a {
+            display: grid;
+            grid-template-columns: 1fr 40px;
+            grid-template-rows: 1fr;
+
+            padding-left: 20px;
+            overflow: inherit;
+            position: relative;
+
+            .crumbLabel {
+              .toolTip {
+                position: absolute;
+                top: 45px;
+                left: 25%;
+
+                padding: 1px 5px;
+
+                background-color: var(
+                  --breadcrumbs-tooltip-background-color,
+                  $breadcrumbs-tooltip-background-color
+                );
+              }
+
+              justify-content: left;
+            }
+
+            .dropDownChevron {
+              margin-left: 10px;
+              height: 30px;
+            }
+          }
+        }
+      }
+
+      .crumbArrow {
+        .arrow {
+          fill: var(
+            --breadcrumbs-anchor-background-color,
+            $breadcrumbs-anchor-background-color
+          );
+        }
+      }
+    }
+
+    .crumbArrow {
+      height: $header-height;
+      z-index: 1;
+
+      .arrow {
+        fill: var(
+          --breadcrumbs-background-color,
+          $breadcrumbs-background-color
+        );
+      }
+
+      .arrowHead {
+        fill: var(--header-background-color, $header-background-color);
+      }
+    }
+
+    // hover styling
+    &:hover {
+      background-color: var(
+        --breadcrumbs-hover-background-color,
+        $breadcrumbs-hover-background-color
+      );
+
+      .crumbArrow {
+        height: $header-height;
+
+        .arrow {
+          fill: var(
+            --breadcrumbs-hover-background-color,
+            $breadcrumbs-hover-background-color
+          );
+        }
+      }
+
+      // anchor hovering
+      &.dropDownAnchor {
+        background-color: white;
+
+        color: var(
+          --breadcrumbs-background-color,
+          $breadcrumbs-background-color
+        );
+        .crumbArrow {
+          .arrow {
+            fill: white;
+          }
+        }
+      }
+    }
+
+    // last crumb's styles
+    &:last-child {
+      // do not apply these styles to the last crumb in dropdown
+      &:not(.blockCrumb) {
+        color: var(
+          --breadcrumbs-background-color,
+          $breadcrumbs-background-color
+        );
+        background-color: var(
+          --header-background-color,
+          $header-background-color
+        );
+
+        .crumbArrow {
+          height: $header-height;
+          background-color: var(
+            --header-background-color,
+            $header-background-color
+          );
+
+          .arrow {
+            fill: var(--header-background-color, $header-background-color);
+          }
+
+          .arrowHead {
+            fill: var(
+              --breadcrumbs-background-color,
+              $breadcrumbs-background-color
+            );
+          }
+        }
+
+        .homeButton {
+          svg {
+            polygon,
+            path {
+              fill: var(
+                --header-homebutton-color,
+                $breadcrumbs-background-color
+              );
+            }
+          }
+        }
+
+        &:hover {
+          color: var(--breadcrumbs-text-color, $breadcrumbs-text-color);
+          background-color: var(
+            --breadcrumbs-hover-background-color,
+            $breadcrumbs-hover-background-color
+          );
+
+          .crumbArrow {
+            height: $header-height;
+
+            .arrow {
+              fill: var(
+                --breadcrumbs-hover-background-color,
+                $breadcrumbs-hover-background-color
+              );
+            }
+          }
+
+          .homeButton {
+            svg {
+              polygon,
+              path {
+                fill: var(--header-homebutton-color, white);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

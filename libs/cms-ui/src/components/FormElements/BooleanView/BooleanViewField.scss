@@ -1,0 +1,31 @@
+@import '../../../variables.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: var(--label-size, $label-size) 1fr;
+  align-items: center;
+  margin-bottom: 10px;
+
+  label {
+    color: var(--input-label-color, $input-label-color);
+  }
+
+  .value {
+    display: grid;
+    grid-template-columns: 35px auto;
+
+    .red {
+      background-color: red;
+      height: 20px;
+      width: 20px;
+      border-radius: 100%;
+    }
+
+    .green {
+      background-color: green;
+      height: 20px;
+      width: 20px;
+      border-radius: 100%;
+    }
+  }
+}

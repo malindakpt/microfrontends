@@ -1,0 +1,90 @@
+/* Common vars */
+$primary-text-color: #000;
+
+/* Default colors */
+$dark-blue: #00467d;
+$blue: #1478af;
+$light-blue: #28aae1;
+$red: #f06c55;
+$dark-gray: #707070;
+$gray: #b7b7b7;
+$light-gray: #dddddd;
+$light-gray-2: #eeeeee;
+$yellow: #ffc81a;
+$green: #95c852;
+
+/* Navigation vars */
+$header-height: 70px; // Important: if this value is changed, breadcrumb arrow styling need to be adjusted as well.
+$header-background-color: white;
+$header-text-color: #777;
+$header-homebutton-color: white;
+$header-divider-color: #e6e6e6;
+
+$breadcrumbs-background-color: #28a9e1;
+$breadcrumbs-hover-background-color: lighten(
+  $breadcrumbs-background-color,
+  10%
+);
+$breadcrumbs-text-color: white;
+$breadcrumbs-anchor-background-color: $dark-blue;
+$breadcrumbs-tooltip-background-color: $dark-blue;
+
+/* Explorer vars */
+$explorer-background-color: #ffffff;
+$explorer-header-background-color: #efefef;
+$explorer-row-background-color-hover: #eaf3f7;
+$explorer-action-button-color: #98c2d0;
+$explorer-action-button-color-hover: lighten($explorer-action-button-color, 5%);
+$explorer-create-button-color: #6cc8d5;
+$explorer-create-button-color-hover: lighten($explorer-create-button-color, 5%);
+$explorer-row-thumbnail-bg-color: #efefef;
+
+/* Filter vars */
+$filter-background-color: #efefef;
+$filter-light-font-color: #8c8b87;
+$filter-option-background-color: #d7e9f1;
+$filter-arrow-button-color: #98c2d0;
+$filter-width: 250px;
+$filter-controller-background-color: #fcfcfc;
+
+/* Details vars */
+$details-background-color: #ffffff;
+
+/* LandingPage vars */
+$landingpage-title-color: #444;
+$landingpage-subtitle-color: #8c8b87;
+$landingpage-largetile-background-color: rgba(81, 212, 215, 0.9);
+$landingpage-largetile-disabled-background-color: #8c8b87;
+$landingpage-largetile-color: #fff;
+$landingpage-smalltile-disabled-background-color: #8c8b87;
+
+/* PageHeader */
+$page-header-color: #ffffff;
+$page-header-background-color: #7eabc7;
+$page-header-min-height: 95px;
+
+/* Form vars */
+$input-color: #444444;
+$input-hover-color: #feb300;
+$input-label-color: #8c8b87;
+$input-border-color: #cacaca;
+$label-size: 150px;
+$input-invalid-color: #dc1b1b;
+$input-invalid-border-color: lighten($input-invalid-color, 20%);
+$input-invalid-hover-color: lighten($input-invalid-color, 10%);
+
+/* Actions */
+$actions-color: #ffffff;
+$actions-background-color: #98c2d0;
+$actions-confirmation-color: red;
+$actions-hover-color: #7ba7bb;
+$actions-border-color: #acced8;
+
+/* Background */
+$background: #ccc;
+$fallback-image-bg-color: #efefef;
+
+/* ListRow Renderers */
+$boolean-dot-true-color: green;
+$boolean-dot-false-color: red;
+$boolean-dot-size: 25px;

@@ -1,0 +1,19 @@
+@import '../../../variables';
+
+.container {
+  padding-left: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+  grid-auto-rows: 44px;
+  column-gap: 5px;
+  justify-items: left;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  background-color: var(
+    --explorer-header-background-color,
+    $explorer-header-background-color
+  );
+}

@@ -1,0 +1,15 @@
+query Tags($filter: TagFilter) {
+  filtered: tags(filter: $filter) {
+    totalCount
+    nodes {
+      id
+      name
+      description
+      createdAt
+      updatedAt
+    }
+  }
+  nonFiltered: tags {
+    totalCount
+  }
+}

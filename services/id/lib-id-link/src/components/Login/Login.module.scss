@@ -1,0 +1,76 @@
+.container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+
+  .whiteBox {
+    display: grid;
+    background-color: white;
+    max-width: 330px;
+    margin: auto;
+    padding: 35px;
+    grid-row-gap: 10px;
+
+    .logo {
+      height: 70px;
+
+      img {
+        margin: auto;
+        display: block;
+        height: 100%;
+      }
+    }
+
+    .header {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .authTitle {
+      padding: 10px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .tile {
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 6fr;
+      place-items: center start;
+      color: white;
+      cursor: pointer;
+      height: 54px;
+
+      &.ax {
+        background-color: #01477d;
+      }
+
+      &.azure {
+        background-color: #0072c6;
+      }
+
+      &.google {
+        background-color: #e64133;
+      }
+
+      .image {
+        width: 42px;
+        background-color: white;
+        padding: 5px;
+        display: grid;
+        place-items: center;
+        border: solid 1px #bababa;
+        height: 42px;
+
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      .text {
+        margin-left: 10px;
+      }
+    }
+  }
+}

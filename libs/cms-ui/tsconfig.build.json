@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "sourceMap": false,
+  "exclude": [
+    // Exclude stories and tests from the build, to avoid having types generated for them ending up in dist folder.
+    "**/*.stories.tsx", // We can't use `(ts|tsx)` glob patterns here, as it only supports very limited "glob-like" patterns (see https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#details). Using something invalid here will make tsc ignore the include and exclude fields all together
+    "**/*.stories.ts",
+    "**/*.test.tsx",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ]
+}

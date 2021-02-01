@@ -1,0 +1,9 @@
+.mainContainer {
+  display: grid;
+  grid-row-gap: 50px;
+  padding: 40px;
+
+  .container {
+    display: grid;
+  }
+}

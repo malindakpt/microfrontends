@@ -1,0 +1,41 @@
+@import '../../../variables.scss';
+
+.container {
+  background: var(--filter-background-color, $filter-background-color);
+  padding: 5px 13px;
+  margin: 3px 3px 0px 3px;
+  cursor: pointer;
+
+  .title {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 30px;
+    place-content: space-between;
+    place-items: center;
+
+    .arrowWrapper {
+      width: 18px;
+
+      .arrow {
+        fill: var(--filter-arrow-button-color, $filter-arrow-button-color);
+      }
+      img {
+        width: 14px;
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+
+  .selectedValue {
+    color: var(--filter-light-font-color, $filter-light-font-color);
+    display: grid;
+    grid-template-columns: auto auto;
+    place-content: space-between;
+    place-items: center;
+
+    .closeBtn {
+      width: 18px;
+    }
+  }
+}

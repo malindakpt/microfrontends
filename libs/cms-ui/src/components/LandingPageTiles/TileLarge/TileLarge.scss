@@ -1,0 +1,52 @@
+@import '../../../variables.scss';
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column: span 4;
+  grid-row: span 2;
+  place-items: center;
+
+  text-decoration: none;
+
+  color: var(--landingpage-largetile-color, $landingpage-largetile-color);
+  background-color: var(
+    --landingpage-largetile-background-color,
+    $landingpage-largetile-background-color
+  );
+
+  &.disabled {
+    background-color: var(
+      --landingpage-largetile-disabled-background-color,
+      $landingpage-largetile-disabled-background-color
+    );
+  }
+
+  .icon {
+    align-self: end;
+    width: 26%;
+  }
+
+  .titlesSection {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+    align-self: stretch;
+
+    padding-top: 25px;
+    text-align: center;
+
+    .label {
+      font-size: 22px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      margin-bottom: 30px;
+    }
+  }
+}

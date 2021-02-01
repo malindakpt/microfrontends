@@ -1,0 +1,8 @@
+mutation CreateUserRole($input: CreateUserRoleInput!) {
+  createUserRole(input: $input) {
+    userRole {
+      id
+      name
+    }
+  }
+}

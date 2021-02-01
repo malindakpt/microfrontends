@@ -1,0 +1,15 @@
+@import '../../../../../variables';
+
+.green {
+  background-color: var(--boolean-dot-true-color, $boolean-dot-true-color);
+  height: var(--boolean-dot-size, $boolean-dot-size);
+  width: var(--boolean-dot-size, $boolean-dot-size);
+  border-radius: 100%;
+}
+
+.red {
+  background-color: var(--boolean-dot-false-color, $boolean-dot-false-color);
+  height: var(--boolean-dot-size, $boolean-dot-size);
+  width: var(--boolean-dot-size, $boolean-dot-size);
+  border-radius: 100%;
+}

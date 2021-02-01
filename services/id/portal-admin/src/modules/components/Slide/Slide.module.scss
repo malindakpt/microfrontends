@@ -1,0 +1,35 @@
+body {
+  :global(.route-animations) {
+    transition: left 500ms ease-in;
+    position: absolute;
+    max-height: calc(100% - 70px);
+    width: 100%;
+    left: 0px;
+    overflow-y: auto;
+  }
+  :global(.animate-forward-enter) {
+    left: 100vw;
+  }
+  :global(.animate-forward-enter-active) {
+    left: 0px;
+  }
+  :global(.animate-forward-exit) {
+    left: 0px;
+  }
+  :global(.animate-forward-exit-active) {
+    left: -100vw;
+  }
+
+  :global(.animate-backward-enter) {
+    left: -100vw;
+  }
+  :global(.animate-backward-enter-active) {
+    left: 0px;
+  }
+  :global(.animate-backward-exit) {
+    left: 0px;
+  }
+  :global(.animate-backward-exit-active) {
+    left: 100vw;
+  }
+}

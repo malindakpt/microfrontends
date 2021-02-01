@@ -1,0 +1,7 @@
+.container {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  grid-template-rows: 70px;
+  background-color: white;
+  color: grey;
+}

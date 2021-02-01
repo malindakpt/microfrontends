@@ -1,0 +1,9 @@
+mutation GetServiceToken($clientId: String!, $clientSecret: String!) {
+  authenticateManagedServiceAccount(
+    input: { clientId: $clientId, clientSecret: $clientSecret }
+  ) {
+    accessToken
+    expiresIn
+    tokenType
+  }
+}

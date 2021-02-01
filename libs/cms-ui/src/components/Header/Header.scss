@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  grid-template-rows: $header-height;
+
+  background-color: $header-background-color;
+  color: var(--header-text-color, $header-text-color);
+}

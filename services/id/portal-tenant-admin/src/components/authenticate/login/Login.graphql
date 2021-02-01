@@ -1,0 +1,5 @@
+mutation AuthenticateSuperUser($dto: AuthenticateSuperUserInput!) {
+  authenticateSuperUser(input: $dto) {
+    accessToken
+  }
+}

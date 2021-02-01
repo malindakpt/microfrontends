@@ -1,0 +1,28 @@
+{
+  "name": "@ax/core",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared types and core functionalities.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn clean && tsc",
+    "start:dev": "tsc -w",
+    "lint": "tsc --noEmit && eslint . --ext .js,.ts --fix",
+    "lint:warn": "tsc --noEmit && eslint . --ext .js,.ts --fix",
+    "lint:CI": "tsc --noEmit && eslint . --ext .js,.ts --quiet",
+    "publish:next": "npm version patch && npm run build && npm publish --tag next",
+    "publish:latest": "npm version patch && npm run build && npm publish"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  },
+  "author": "Axinom",
+  "license": "UNLICENSED",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  }
+}

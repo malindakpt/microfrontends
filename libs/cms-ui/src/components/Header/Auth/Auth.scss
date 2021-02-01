@@ -1,0 +1,42 @@
+@import '../../../variables.scss';
+
+.container {
+  grid-column-start: -1;
+  display: grid;
+  grid-template-columns: 200px;
+  grid-template-rows: 1fr;
+  align-items: center;
+
+  position: relative;
+
+  border-left: 2px solid var(--header-divider-color, $header-divider-color);
+
+  .profileContainer {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+
+    .profilePicture {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+    }
+
+    .userName {
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      margin-left: 5px;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    top: $header-height;
+    right: 0px;
+    width: 200px;
+    background-color: white;
+    padding: 10px 0;
+  }
+}

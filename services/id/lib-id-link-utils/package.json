@@ -1,0 +1,33 @@
+{
+  "name": "@ax/id-link-utils",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Shared types used by id-service and integration clients",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": "",
+  "engines": {
+    "node": ">=12",
+    "npm": ">=6"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn clean && tsc",
+    "start:dev": "tsc -w",
+    "test": "jest --passWithNoTests --silent"
+  },
+  "keywords": [],
+  "author": "Axinom",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@ax/core": "^1.0.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  }
+}

@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+
+.container {
+  width: $filter-width;
+  background-color: var(
+    --filter-controller-background-color,
+    $filter-controller-background-color
+  );
+}

@@ -1,0 +1,16 @@
+query ApplicationsWithData($filter: ApplicationFilter) {
+  filtered: applications(filter: $filter) {
+    totalCount
+    nodes {
+      id
+      name
+      interimAdministratorEmail
+      enabled
+      createdAt
+      updatedAt
+    }
+  }
+  nonFilterd: applications {
+    totalCount
+  }
+}
